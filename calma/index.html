@@ -138,6 +138,69 @@
     .support-card a { display: inline-flex; align-items: center; gap: 7px; color: var(--green-deep); font-size: .83rem; font-weight: 700; text-decoration: none; }
     .support-card.urgent a { color: #815853; }
     .support-note { max-width: 740px; margin: 17px 0 0; color: #818880; font-size: .72rem; }
+    .support-note a { color: var(--green-deep); }
+
+    .resource-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .resource-card { min-height: 238px; display: flex; flex-direction: column; align-items: flex-start; padding: 25px; border: 1px solid var(--line); border-radius: 21px; background: var(--white); }
+    .resource-card:nth-child(1) { background: #eef0e9; }
+    .resource-card:nth-child(2) { background: #fbf1e9; border-color: #eaded3; }
+    .resource-card:nth-child(3) { background: #eeebf2; border-color: #e2dce9; }
+    .resource-card:nth-child(4) { background: #edf0ed; }
+    .resource-icon { width: 39px; height: 39px; display: grid; place-items: center; margin-bottom: 19px; border-radius: 50%; background: rgba(255,255,255,.65); color: var(--green-deep); font-size: 1.1rem; }
+    .resource-card h3 { margin-bottom: 8px; font-size: 1.42rem; }
+    .resource-card p { margin-bottom: 15px; color: #6c776d; font-size: .82rem; }
+    .resource-detail { width: 100%; margin: 0 0 16px !important; padding: 12px 14px; border-radius: 12px; background: rgba(255,255,255,.65); color: #56665a !important; font-size: .76rem !important; }
+    .resource-detail a { color: var(--green-deep); }
+    .resource-action { min-height: 38px; margin-top: auto; padding: 0 14px; border: 1px solid #cbd5cc; border-radius: 999px; background: rgba(255,255,255,.58); color: var(--green-deep); cursor: pointer; font-size: .76rem; font-weight: 650; }
+    .resource-action:hover { background: white; }
+    .game-count { min-height: 22px; margin: 7px 0 0 !important; color: #6f637f !important; font-size: .74rem !important; }
+
+    .diary-shell { display: grid; grid-template-columns: .8fr 1.2fr; gap: 34px; padding: clamp(25px, 5vw, 43px); border: 1px solid #e1e4dd; border-radius: 26px; background: var(--white); }
+    .diary-intro h2 { font-size: clamp(2.3rem, 4vw, 3.5rem); }
+    .diary-intro p { margin: 14px 0 0; color: var(--muted); font-size: .85rem; }
+    .diary-privacy { margin-top: 19px !important; padding: 12px 14px; border-radius: 12px; background: #f0f2ed; color: #6a756c !important; font-size: .72rem !important; }
+    .diary-form { display: grid; gap: 11px; }
+    .diary-form label { color: #69766c; font-size: .75rem; font-weight: 650; }
+    .diary-form select, .diary-form textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: #fffefa; color: var(--ink); }
+    .diary-form textarea { min-height: 140px; resize: vertical; line-height: 1.6; }
+    .prompt-buttons { display: flex; flex-wrap: wrap; gap: 7px; }
+    .prompt-chip { min-height: 32px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: #6c786e; cursor: pointer; font-size: .68rem; }
+    .prompt-chip:hover { background: var(--green-pale); }
+    .diary-actions { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .diary-status { min-height: 20px; margin: 0; color: var(--green-deep); font-size: .74rem; }
+    .diary-entries { display: grid; gap: 10px; margin-top: 20px; }
+    .diary-entry { padding: 15px 16px; border: 1px solid #e4e7e0; border-radius: 14px; background: #fbfcf8; }
+    .diary-entry-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 7px; }
+    .diary-entry time { color: #879188; font-size: .66rem; }
+    .diary-entry-mood { color: var(--green-deep); font-size: .7rem; font-weight: 650; }
+    .diary-entry p { margin: 0; color: #59675d; font-size: .81rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .diary-delete { margin-top: 10px; padding: 5px 0; border: 0; border-bottom: 1px solid #d6dcd4; background: transparent; color: #718074; cursor: pointer; font-size: .68rem; }
+    .diary-empty { margin: 13px 0 0; color: #8a938b; font-size: .75rem; }
+
+    .voice-shell { display: grid; grid-template-columns: .72fr 1.28fr; gap: 29px; padding: clamp(25px, 5vw, 43px); border: 1px solid #dfdae8; border-radius: 26px; background: linear-gradient(135deg, #f0edf5, #faf8f4); }
+    .voice-intro p { margin: 14px 0 0; color: #777482; font-size: .84rem; }
+    .voice-prototype-note { margin-top: 15px !important; padding: 12px 13px; border-radius: 12px; background: rgba(255,255,255,.65); font-size: .71rem !important; }
+    .voice-chat { display: flex; flex-direction: column; align-items: flex-start; }
+    .voice-label { margin-bottom: 9px; color: #82788f; font-size: .69rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .voice-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .voice-choice { min-height: 38px; padding: 0 13px; border: 1px solid #d7d1e0; border-radius: 999px; background: rgba(255,255,255,.65); color: #665e72; cursor: pointer; font-size: .74rem; }
+    .voice-choice:hover, .voice-choice[aria-pressed="true"] { background: #e5e0ed; border-color: #b9aec8; color: #514760; }
+    .voice-response { min-height: 80px; width: 100%; margin: 16px 0 12px; padding: 16px 18px; border-radius: 16px 16px 16px 4px; background: white; color: #5d5968; font-family: var(--serif); font-size: 1.15rem; line-height: 1.5; }
+    .voice-controls { display: flex; gap: 9px; flex-wrap: wrap; }
+    .voice-status { min-height: 18px; margin: 9px 0 0; color: #756d82; font-size: .7rem; }
+    .meditation-card { max-width: 780px; margin: 0 auto; background: linear-gradient(145deg, #fffefa, #f2f2ea); }
+    .meditation-top { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 23px; }
+    .meditation-progress { height: 5px; overflow: hidden; border-radius: 999px; background: #e3e7de; }
+    .meditation-progress span { display: block; width: 20%; height: 100%; border-radius: inherit; background: var(--green); transition: width .3s ease; }
+    .meditation-count { margin: 15px 0 11px !important; color: #879188 !important; font-size: .72rem !important; }
+    .meditation-prompt { min-height: 82px; margin: 0 !important; color: #536257 !important; font-family: var(--serif); font-size: clamp(1.3rem, 3vw, 1.8rem) !important; line-height: 1.5; }
+    .meditation-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+    .voice-log { display: grid; gap: 8px; width: 100%; max-height: 220px; overflow: auto; }
+    .voice-response, .voice-user { width: fit-content; max-width: 92%; margin: 0; padding: 13px 16px; border-radius: 16px 16px 16px 4px; background: white; color: #5d5968; font-family: var(--serif); font-size: 1rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .voice-user { justify-self: end; border-radius: 16px 16px 4px 16px; background: #e4e0eb; color: #5e566e; font-family: var(--sans); font-size: .8rem; }
+    .voice-form { display: flex; gap: 8px; width: 100%; margin-top: 13px; }
+    .voice-form input { min-width: 0; flex: 1; min-height: 43px; padding: 0 14px; border: 1px solid #d7d1e0; border-radius: 999px; background: rgba(255,255,255,.8); color: var(--ink); }
+    .voice-form .mini-button { flex: 0 0 auto; }
 
     footer { padding: 27px 0 35px; color: #869087; font-size: .72rem; }
     .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; }
@@ -168,10 +231,13 @@
       .hero { grid-template-columns: 1fr; padding-top: 56px; }
       .hero-text { max-width: 680px; }
       .breath-card { min-height: 360px; }
+      .nav { gap: 10px; }
+      .nav a:not(.help-link) { display: none; }
       .section-heading { grid-template-columns: 1fr; gap: 16px; }
       .section-intro { max-width: 600px; }
       .practice-grid { grid-template-columns: 1fr; }
       .journal { grid-template-columns: 1fr; gap: 24px; }
+      .diary-shell, .voice-shell { grid-template-columns: 1fr; gap: 23px; }
     }
     @media (max-width: 620px) {
       .wrap { width: min(100% - 32px, 520px); }
@@ -191,6 +257,9 @@
       .section { padding: 64px 0; }
       .section-heading { margin-bottom: 25px; }
       .support { grid-template-columns: 1fr; }
+      .resource-grid { grid-template-columns: 1fr; }
+      .resource-card { min-height: auto; padding: 21px; }
+      .diary-shell, .voice-shell { padding: 23px 19px; }
       .reminder { grid-template-columns: 44px 1fr; gap: 14px; padding: 19px; }
       .reminder-icon { width: 42px; height: 42px; }
       .journal { padding: 24px 20px; }
@@ -213,6 +282,10 @@
       <nav class="nav" aria-label="Navegación principal">
         <a href="#respirar">Respirar</a>
         <a href="#aterrizar">Aterrizar</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#meditacion">Pausa guiada</a>
+        <a href="#diario">Mi diario</a>
+        <a href="#voz">Voz</a>
         <a href="#escribir">Escribir</a>
         <a class="help-link" href="#apoyo">Necesito apoyo</a>
         <button class="header-action" id="open-now-top" type="button">Ayuda ahora</button>
@@ -287,10 +360,127 @@
       <div class="reminder"><span class="reminder-icon" aria-hidden="true">✳</span><p>Ahora mismo, un paso pequeño también cuenta.</p></div>
     </section>
 
+    <section class="section" id="recursos" aria-labelledby="recursos-title">
+      <div class="section-heading">
+        <div><p class="section-index">02 / Prueba a tu manera</p><h2 id="recursos-title">Elige un ancla para <em>este momento.</em></h2></div>
+        <p class="section-intro">No hay una técnica que funcione igual para todo el mundo. Prueba solo lo que te resulte agradable y deja lo demás.</p>
+      </div>
+      <div class="resource-grid">
+        <article class="resource-card">
+          <span class="resource-icon" aria-hidden="true">✿</span><h3>Un aroma conocido</h3>
+          <p>Si ya tienes lavanda u otro olor que te guste, puedes usarlo como una señal sensorial suave.</p>
+          <p class="resource-detail" id="aroma-detail" hidden>Acércalo a una distancia cómoda y nota el olor sin inhalar hondo. Sáltatelo si te produce tos, dolor de cabeza, alergia o malestar. No ingieras aceites esenciales ni los apliques en la piel. La aromaterapia con lavanda no tiene beneficios concluyentes para la ansiedad. <a href="https://www.nccih.nih.gov/health/lavender" target="_blank" rel="noopener noreferrer">Fuente de seguridad ↗</a></p>
+          <button class="resource-action" id="aroma-toggle" type="button" aria-expanded="false" aria-controls="aroma-detail">Ver cómo probarlo</button>
+        </article>
+        <article class="resource-card">
+          <span class="resource-icon" aria-hidden="true">◌</span><h3>Un sabor agradable</h3>
+          <p>Una bebida o un bocado pequeño puede darte algo concreto que notar.</p>
+          <p class="resource-detail" id="taste-detail" hidden>Si te apetece y no tienes restricciones de alimentación, toma un bocado pequeño de algo dulce y nota el sabor y la textura. No es un tratamiento para la ansiedad ni tienes que comerlo.</p>
+          <button class="resource-action" id="taste-toggle" type="button" aria-expanded="false" aria-controls="taste-detail">Mostrar sugerencia</button>
+        </article>
+        <article class="resource-card">
+          <span class="resource-icon" aria-hidden="true">✧</span><h3>Un reto para la mente</h3>
+          <p>Desvía la atención un momento con un juego sencillo de observación.</p>
+          <p class="resource-detail" id="game-instruction" aria-live="polite">Busca cinco objetos redondos a tu alrededor. No necesitas levantarte.</p>
+          <button class="resource-action" id="game-add" type="button">He encontrado uno</button>
+          <p class="game-count" id="game-count" aria-live="polite">0 de 5</p>
+          <button class="text-button" id="game-change" type="button">Cambiar reto</button>
+        </article>
+        <article class="resource-card">
+          <span class="resource-icon" aria-hidden="true">⌁</span><h3>Notar una textura</h3>
+          <p>Elige algo cercano que puedas tocar, como una manga o una manta.</p>
+          <p class="resource-detail" id="touch-detail" hidden>Nota si es suave o rugoso, frío o cálido, ligero o pesado. Si tocar algo no te apetece, puedes simplemente mirarlo.</p>
+          <button class="resource-action" id="touch-toggle" type="button" aria-expanded="false" aria-controls="touch-detail">Probar anclaje táctil</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="meditacion" aria-labelledby="meditacion-title">
+      <div class="section-heading">
+        <div><p class="section-index">03 / Pausa original</p><h2 id="meditacion-title">Unos minutos para <em>estar aquí.</em></h2></div>
+        <p class="section-intro">Una meditación breve, creada para Acalmaia. Puedes mantener los ojos abiertos, saltarte pasos o parar cuando quieras. No hace falta seguir la respiración.</p>
+      </div>
+      <div class="practice meditation-card">
+        <div class="meditation-top"><span class="number">GUIADA A TU RITMO</span><span class="icon" aria-hidden="true">◡</span></div>
+        <div class="meditation-progress" role="progressbar" aria-label="Progreso de la pausa guiada" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1"><span id="meditation-progress-fill"></span></div>
+        <p class="meditation-count" id="meditation-count" aria-live="polite">Paso 1 de 5</p>
+        <p class="meditation-prompt" id="meditation-prompt" aria-live="polite">Acomódate como estés. No hace falta cerrar los ojos ni sentirte de una forma concreta.</p>
+        <div class="meditation-controls">
+          <button class="text-button" id="meditation-back" type="button" hidden>Anterior</button>
+          <button class="mini-button" id="meditation-next" type="button">Siguiente</button>
+          <button class="resource-action" id="meditation-read" type="button">Leer en voz alta</button>
+          <button class="text-button" id="meditation-stop" type="button">Parar voz</button>
+        </div>
+        <p class="voice-status" id="meditation-status" aria-live="polite">La voz se activa solo cuando la pides.</p>
+      </div>
+    </section>
+
+    <section class="section" id="diario" aria-labelledby="diario-title">
+      <div class="diary-shell">
+        <div class="diary-intro">
+          <p class="section-index">04 / Diario personal</p>
+          <h2 id="diario-title">Un espacio <em>tuyo.</em></h2>
+          <p>Guarda unas líneas sobre tu día, algo que te preocupe o una cosa que quieras recordar.</p>
+          <p class="diary-privacy">El diario solo se guarda en este navegador cuando pulsas «Guardar». No se envía a ningún servicio. Si compartes el dispositivo, otras personas podrían verlo. Puedes borrar cada entrada o todas.</p>
+        </div>
+        <div>
+          <form class="diary-form" id="diary-form">
+            <label for="diary-mood">¿Qué se parece más a cómo estás?</label>
+            <select id="diary-mood">
+              <option value="Sin etiqueta">Prefiero no ponerle nombre</option>
+              <option value="Inquietud">Inquietud</option>
+              <option value="Miedo">Miedo</option>
+              <option value="Agotamiento">Agotamiento</option>
+              <option value="Tranquilidad">Tranquilidad</option>
+              <option value="Otra cosa">Otra cosa</option>
+            </select>
+            <label for="diary-entry-text">Escribe lo que quieras guardar</label>
+            <div class="prompt-buttons" aria-label="Ideas para empezar">
+              <button class="prompt-chip" type="button" data-prompt="Ahora mismo me vendría bien…">Me vendría bien…</button>
+              <button class="prompt-chip" type="button" data-prompt="Una cosa que sí he conseguido hoy es…">Hoy he conseguido…</button>
+              <button class="prompt-chip" type="button" data-prompt="Quiero recordar que…">Quiero recordar…</button>
+            </div>
+            <textarea id="diary-entry-text" maxlength="2400" placeholder="Escribe unas palabras para ti…" required></textarea>
+            <div class="diary-actions"><button class="mini-button" type="submit">Guardar en este dispositivo</button><button class="text-button" id="diary-delete-all" type="button" disabled>Borrar todas</button></div>
+            <p class="diary-status" id="diary-status" aria-live="polite"></p>
+          </form>
+          <div class="diary-entries" id="diary-entries" aria-live="polite"></div>
+          <p class="diary-empty" id="diary-empty">Aún no hay entradas guardadas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="voz" aria-labelledby="voz-title">
+      <div class="voice-shell">
+        <div class="voice-intro">
+          <p class="section-index">05 / Compañía por voz</p>
+          <h2 id="voz-title">Una voz amable, <em>a tu ritmo.</em></h2>
+          <p>Escribe algo o toca una opción. Puedes pedir que la respuesta se lea en voz alta.</p>
+          <p class="voice-prototype-note">Prototipo de chat guiado: usa respuestas preparadas y voz del navegador; todavía no es una IA conversacional. No usa el micrófono ni envía tu diario.</p>
+        </div>
+        <div class="voice-chat">
+          <p class="voice-label">¿Qué necesitas escuchar?</p>
+          <div class="voice-options" role="group" aria-label="Elige un mensaje de apoyo">
+            <button class="voice-choice" type="button" data-voice="miedo">Tengo miedo</button>
+            <button class="voice-choice" type="button" data-voice="desbordada">Me siento desbordada</button>
+            <button class="voice-choice" type="button" data-voice="compania">Necesito compañía</button>
+          </div>
+          <div class="voice-log" id="voice-log" aria-live="polite"><p class="voice-response">Estoy aquí contigo en este momento. Elige una opción o escribe unas palabras.</p></div>
+          <form class="voice-form" id="voice-form">
+            <label class="sr-only" for="voice-input">Escribe lo que necesitas</label>
+            <input id="voice-input" maxlength="240" placeholder="Escribe lo que te pasa…" autocomplete="off">
+            <button class="mini-button" type="submit">Enviar</button>
+          </form>
+          <div class="voice-controls"><button class="resource-action" id="voice-read" type="button" disabled>Leer respuesta</button><button class="text-button" id="voice-stop" type="button">Parar voz</button></div>
+          <p class="voice-status" id="voice-status" aria-live="polite">La voz no se activa hasta que la pides.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="escribir" aria-labelledby="escribir-title">
       <div class="journal">
         <div class="journal-copy">
-          <p class="section-index">02 / Ponerlo en palabras</p>
+          <p class="section-index">06 / Ponerlo en palabras</p>
           <h2 id="escribir-title">¿Qué te gustaría <em>soltar?</em></h2>
           <p>No tienes que encontrar la frase perfecta. Puedes escribir una palabra, una preocupación o lo que necesitas en este instante.</p>
         </div>
@@ -304,7 +494,7 @@
 
     <section class="section" id="apoyo" aria-labelledby="apoyo-title">
       <div class="section-heading">
-        <div><p class="section-index">03 / Apoyo humano</p><h2 id="apoyo-title">No tienes que <em>llevarlo a solas.</em></h2></div>
+        <div><p class="section-index">07 / Apoyo humano</p><h2 id="apoyo-title">No tienes que <em>llevarlo a solas.</em></h2></div>
         <p class="section-intro">Hablar con alguien de confianza o con un profesional puede ayudarte a encontrar el apoyo adecuado para ti.</p>
       </div>
       <div class="support">
@@ -337,6 +527,7 @@
       <p class="now-copy" id="now-copy" aria-live="polite">Si puedes, siéntate o apóyate en algo firme. Si no estás a salvo, aléjate del peligro y pide ayuda.</p>
       <blockquote class="now-message" id="now-message" hidden>Me está costando; ¿puedes quedarte conmigo un rato o hablar conmigo por teléfono?</blockquote>
       <button class="now-copy-button" id="copy-message" type="button" hidden>Copiar mensaje para pedir compañía</button>
+      <button class="resource-action" id="now-open-resources" type="button" hidden>Ver aroma, sabor y juego</button>
       <p class="now-copy-status" id="now-copy-status" aria-live="polite"></p>
       <div class="now-navigation">
         <button class="text-button" id="now-back" type="button" hidden>Anterior</button>
@@ -474,6 +665,7 @@
       const nowCount = document.getElementById('now-count');
       const nowMessage = document.getElementById('now-message');
       const copyMessage = document.getElementById('copy-message');
+      const nowOpenResources = document.getElementById('now-open-resources');
       const nowCopyStatus = document.getElementById('now-copy-status');
       const nowBack = document.getElementById('now-back');
       const nowNext = document.getElementById('now-next');
@@ -495,6 +687,7 @@
         nowBack.hidden = nowStep === 0;
         nowMessage.hidden = nowStep !== nowSteps.length - 1;
         copyMessage.hidden = nowStep !== nowSteps.length - 1;
+        nowOpenResources.hidden = nowStep !== nowSteps.length - 1;
         nowCopyStatus.textContent = '';
         nowNext.textContent = nowStep === nowSteps.length - 1 ? 'Cerrar por ahora' : 'Siguiente paso';
       }
@@ -509,6 +702,10 @@
       document.getElementById('open-now-top').addEventListener('click', openNow);
       document.getElementById('open-now-hero').addEventListener('click', openNow);
       document.getElementById('now-close').addEventListener('click', () => nowDialog.close());
+      nowOpenResources.addEventListener('click', () => {
+        nowDialog.close();
+        document.getElementById('recursos').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
       nowBack.addEventListener('click', () => {
         if (nowStep > 0) {
           nowStep -= 1;
@@ -537,6 +734,293 @@
         nowStep = 0;
         renderNowStep();
       });
+
+      function bindDetailToggle(buttonId, detailId, openLabel, closeLabel) {
+        const button = document.getElementById(buttonId);
+        const detail = document.getElementById(detailId);
+        button.addEventListener('click', () => {
+          const open = detail.hidden;
+          detail.hidden = !open;
+          button.setAttribute('aria-expanded', String(open));
+          button.textContent = open ? closeLabel : openLabel;
+        });
+      }
+      bindDetailToggle('aroma-toggle', 'aroma-detail', 'Ver cómo probarlo', 'Ocultar sugerencia');
+      bindDetailToggle('taste-toggle', 'taste-detail', 'Mostrar sugerencia', 'Ocultar sugerencia');
+      bindDetailToggle('touch-toggle', 'touch-detail', 'Probar anclaje táctil', 'Ocultar sugerencia');
+
+      const gameChallenges = [
+        'Busca cinco objetos redondos a tu alrededor. No necesitas levantarte.',
+        'Elige un color y encuentra cinco cosas de ese color en la habitación.',
+        'Nombra mentalmente cinco animales; puedes empezar por el que quieras.'
+      ];
+      let gameIndex = 0;
+      let gameFound = 0;
+      const gameInstruction = document.getElementById('game-instruction');
+      const gameCount = document.getElementById('game-count');
+      const gameAdd = document.getElementById('game-add');
+      function renderGame() {
+        gameInstruction.textContent = gameChallenges[gameIndex];
+        gameFound = 0;
+        gameCount.textContent = '0 de 5';
+        gameAdd.disabled = false;
+        gameAdd.textContent = 'He encontrado uno';
+      }
+      gameAdd.addEventListener('click', () => {
+        if (gameFound >= 5) return;
+        gameFound += 1;
+        gameCount.textContent = `${gameFound} de 5`;
+        if (gameFound === 5) {
+          gameCount.textContent = 'Has completado este reto, a tu ritmo.';
+          gameAdd.textContent = 'Reto completado';
+          gameAdd.disabled = true;
+        }
+      });
+      document.getElementById('game-change').addEventListener('click', () => {
+        gameIndex = (gameIndex + 1) % gameChallenges.length;
+        renderGame();
+      });
+
+      const synth = 'speechSynthesis' in window ? window.speechSynthesis : null;
+      function speakText(text, statusElement) {
+        if (!synth || !('SpeechSynthesisUtterance' in window)) {
+          statusElement.textContent = 'La lectura en voz alta no está disponible en este navegador; puedes leer el texto en pantalla.';
+          return;
+        }
+        synth.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'es-ES';
+        utterance.rate = 0.9;
+        utterance.onstart = () => { statusElement.textContent = 'Reproduciendo voz. Puedes pararla cuando quieras.'; };
+        utterance.onend = () => { statusElement.textContent = 'La lectura ha terminado.'; };
+        utterance.onerror = () => { statusElement.textContent = 'No se pudo iniciar la voz. Puedes leer el texto en pantalla.'; };
+        synth.speak(utterance);
+      }
+      function stopSpokenText(statusElement) {
+        if (synth) synth.cancel();
+        statusElement.textContent = 'Voz detenida.';
+      }
+
+      const meditationSteps = [
+        'Acomódate como estés. No hace falta cerrar los ojos ni sentirte de una forma concreta.',
+        'Nota dos puntos de apoyo: quizá los pies en el suelo o la espalda en la silla. No intentes cambiar nada.',
+        'Elige un sonido cercano y escúchalo un momento: su volumen, su tono o el silencio que queda después.',
+        'Si te resulta cómodo, nota cómo va y viene la respiración sin cambiarla. Si te incomoda, vuelve al sonido o a los pies.',
+        'Piensa, si te ayuda: «No necesito resolverlo todo en este minuto». Cuando quieras, mueve los dedos y mira de nuevo alrededor.'
+      ];
+      let meditationIndex = 0;
+      const meditationPrompt = document.getElementById('meditation-prompt');
+      const meditationCount = document.getElementById('meditation-count');
+      const meditationProgress = document.querySelector('.meditation-progress');
+      const meditationFill = document.getElementById('meditation-progress-fill');
+      const meditationBack = document.getElementById('meditation-back');
+      const meditationNext = document.getElementById('meditation-next');
+      const meditationStatus = document.getElementById('meditation-status');
+      function renderMeditationStep() {
+        meditationPrompt.textContent = meditationSteps[meditationIndex];
+        meditationCount.textContent = `Paso ${meditationIndex + 1} de ${meditationSteps.length}`;
+        meditationProgress.setAttribute('aria-valuenow', String(meditationIndex + 1));
+        meditationFill.style.width = `${((meditationIndex + 1) / meditationSteps.length) * 100}%`;
+        meditationBack.hidden = meditationIndex === 0;
+        meditationNext.textContent = meditationIndex === meditationSteps.length - 1 ? 'Volver al inicio' : 'Siguiente';
+        meditationStatus.textContent = 'La voz se activa solo cuando la pides.';
+      }
+      meditationBack.addEventListener('click', () => {
+        if (meditationIndex > 0) {
+          meditationIndex -= 1;
+          renderMeditationStep();
+        }
+      });
+      meditationNext.addEventListener('click', () => {
+        meditationIndex = meditationIndex === meditationSteps.length - 1 ? 0 : meditationIndex + 1;
+        renderMeditationStep();
+      });
+      document.getElementById('meditation-read').addEventListener('click', () => speakText(meditationSteps[meditationIndex], meditationStatus));
+      document.getElementById('meditation-stop').addEventListener('click', () => stopSpokenText(meditationStatus));
+
+      const diaryKey = 'acalmaia-diary-v1';
+      const diaryForm = document.getElementById('diary-form');
+      const diaryText = document.getElementById('diary-entry-text');
+      const diaryMood = document.getElementById('diary-mood');
+      const diaryStatus = document.getElementById('diary-status');
+      const diaryEntriesNode = document.getElementById('diary-entries');
+      const diaryEmpty = document.getElementById('diary-empty');
+      const diaryDeleteAll = document.getElementById('diary-delete-all');
+      let diaryEntries = [];
+      let diaryReady = true;
+
+      function loadDiary() {
+        try {
+          const parsed = JSON.parse(localStorage.getItem(diaryKey) || '[]');
+          diaryEntries = Array.isArray(parsed) ? parsed.filter(entry => entry && typeof entry.text === 'string') : [];
+        } catch {
+          diaryEntries = [];
+          diaryReady = false;
+          diaryStatus.textContent = 'No se pudo abrir el diario en este navegador.';
+        }
+      }
+
+      function saveDiary() {
+        try {
+          localStorage.setItem(diaryKey, JSON.stringify(diaryEntries));
+          diaryReady = true;
+          return true;
+        } catch {
+          diaryReady = false;
+          diaryStatus.textContent = 'El navegador no permite guardar aquí. Puedes copiar tu texto antes de salir.';
+          return false;
+        }
+      }
+
+      function renderDiary() {
+        diaryEntriesNode.replaceChildren();
+        const sorted = [...diaryEntries].sort((a, b) => b.createdAt - a.createdAt);
+        diaryEmpty.hidden = sorted.length > 0;
+        diaryDeleteAll.disabled = sorted.length === 0;
+        sorted.forEach(entry => {
+          const article = document.createElement('article');
+          article.className = 'diary-entry';
+          const head = document.createElement('div');
+          head.className = 'diary-entry-head';
+          const time = document.createElement('time');
+          const date = new Date(entry.createdAt);
+          time.dateTime = date.toISOString();
+          time.textContent = new Intl.DateTimeFormat('es-ES', { dateStyle: 'medium', timeStyle: 'short' }).format(date);
+          const mood = document.createElement('span');
+          mood.className = 'diary-entry-mood';
+          mood.textContent = entry.mood || 'Sin etiqueta';
+          head.append(time, mood);
+          const body = document.createElement('p');
+          body.textContent = entry.text;
+          const remove = document.createElement('button');
+          remove.className = 'diary-delete';
+          remove.type = 'button';
+          remove.textContent = 'Borrar esta entrada';
+          remove.addEventListener('click', () => {
+            diaryEntries = diaryEntries.filter(item => item.id !== entry.id);
+            if (saveDiary()) {
+              renderDiary();
+              diaryStatus.textContent = 'Entrada borrada de este dispositivo.';
+            }
+          });
+          article.append(head, body, remove);
+          diaryEntriesNode.append(article);
+        });
+      }
+
+      loadDiary();
+      renderDiary();
+      diaryForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const text = diaryText.value.trim();
+        if (!text) {
+          diaryStatus.textContent = 'Escribe algo antes de guardar.';
+          diaryText.focus();
+          return;
+        }
+        const newEntry = {
+          id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+          createdAt: Date.now(),
+          mood: diaryMood.value,
+          text
+        };
+        diaryEntries = [newEntry, ...diaryEntries].slice(0, 40);
+        if (saveDiary()) {
+          diaryText.value = '';
+          renderDiary();
+          diaryStatus.textContent = 'Entrada guardada solo en este navegador.';
+        }
+      });
+      document.querySelectorAll('.prompt-chip').forEach(button => button.addEventListener('click', () => {
+        if (!diaryText.value.trim()) diaryText.value = button.dataset.prompt;
+        else diaryText.value += `${diaryText.value.endsWith(' ') ? '' : ' '}${button.dataset.prompt}`;
+        diaryText.focus();
+        diaryText.setSelectionRange(diaryText.value.length, diaryText.value.length);
+      }));
+      let confirmDeleteAll = false;
+      diaryDeleteAll.addEventListener('click', () => {
+        if (!confirmDeleteAll) {
+          confirmDeleteAll = true;
+          diaryDeleteAll.textContent = 'Pulsa otra vez para borrar';
+          window.setTimeout(() => {
+            confirmDeleteAll = false;
+            diaryDeleteAll.textContent = 'Borrar todas';
+          }, 4500);
+          return;
+        }
+        diaryEntries = [];
+        confirmDeleteAll = false;
+        diaryDeleteAll.textContent = 'Borrar todas';
+        if (saveDiary()) {
+          renderDiary();
+          diaryStatus.textContent = 'Diario borrado de este dispositivo.';
+        }
+      });
+
+      const voiceLog = document.getElementById('voice-log');
+      const voiceForm = document.getElementById('voice-form');
+      const voiceInput = document.getElementById('voice-input');
+      const voiceRead = document.getElementById('voice-read');
+      const voiceStatus = document.getElementById('voice-status');
+      let firstVoiceMessage = true;
+      let lastVoiceReply = '';
+      const voiceReplies = {
+        miedo: 'Siento que este momento dé miedo. No tienes que resolverlo todo de golpe. Si te ayuda, nota un punto de apoyo y quédate con una sola cosa que puedas ver.',
+        desbordada: 'Parece mucho para sostener ahora. Podemos dejar lo demás para después. Elige un paso pequeño o simplemente quédate un momento aquí.',
+        compania: 'Pedir compañía está bien. Si puedes, escribe a alguien de confianza: «Me está costando; ¿puedes quedarte conmigo un rato o hablar conmigo por teléfono?»',
+        generica: 'Gracias por ponerlo en palabras. No tienes que dar más detalles. ¿Te ayudaría probar una actividad breve o pedir compañía a alguien de confianza?',
+        respiracion: 'No necesitas respirar hondo ni cambiar el ritmo. Si fijarte en la respiración te incomoda, vuelve a notar los pies o mira un objeto cercano.',
+        urgencia: 'No puedo valorar síntomas ni saber su causa por este chat. Si son nuevos, distintos o te preocupa tu salud, busca atención sanitaria. Si hay peligro inmediato en España, llama al 112.'
+      };
+
+      function appendVoiceMessage(text, kind) {
+        if (firstVoiceMessage) {
+          voiceLog.replaceChildren();
+          firstVoiceMessage = false;
+        }
+        const bubble = document.createElement('p');
+        bubble.className = kind === 'user' ? 'voice-user' : 'voice-response';
+        bubble.textContent = text;
+        voiceLog.append(bubble);
+        voiceLog.scrollTop = voiceLog.scrollHeight;
+      }
+
+      function chooseVoiceReply(text) {
+        const value = text.toLowerCase();
+        if (/(dolor|pecho|desmayo|ahog|no puedo respirar|emergencia)/.test(value)) return voiceReplies.urgencia;
+        if (/(suicid|hacerme daño|hacer daño|no quiero vivir)/.test(value)) return 'Siento que estés pasando por esto. No puedo ayudarte en una emergencia por chat. En España, llama al 024 para apoyo ante pensamientos de suicidio; si hay peligro inmediato, llama al 112. Si puedes, avisa ahora a alguien de confianza.';
+        if (/(respir|aire)/.test(value)) return voiceReplies.respiracion;
+        if (/(sola|solo|compañ|alguien)/.test(value)) return voiceReplies.compania;
+        if (/(miedo|asustada|asustado|pánico|panico|ansiedad)/.test(value)) return voiceReplies.miedo;
+        return voiceReplies.generica;
+      }
+
+      function respondInVoiceChat(userText, reply) {
+        appendVoiceMessage(userText, 'user');
+        appendVoiceMessage(reply, 'assistant');
+        lastVoiceReply = reply;
+        voiceRead.disabled = false;
+        voiceStatus.textContent = 'Respuesta preparada. Puedes leerla o pedir que se diga en voz alta.';
+      }
+
+      document.querySelectorAll('.voice-choice').forEach(button => button.addEventListener('click', () => {
+        document.querySelectorAll('.voice-choice').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        const labels = { miedo: 'Tengo miedo', desbordada: 'Me siento desbordada', compania: 'Necesito compañía' };
+        respondInVoiceChat(labels[button.dataset.voice], voiceReplies[button.dataset.voice]);
+      }));
+      voiceForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const text = voiceInput.value.trim();
+        if (!text) {
+          voiceStatus.textContent = 'Escribe unas palabras o elige una de las opciones.';
+          voiceInput.focus();
+          return;
+        }
+        respondInVoiceChat(text, chooseVoiceReply(text));
+        voiceInput.value = '';
+      });
+      voiceRead.addEventListener('click', () => speakText(lastVoiceReply, voiceStatus));
+      document.getElementById('voice-stop').addEventListener('click', () => stopSpokenText(voiceStatus));
     })();
   </script>
 </body>
