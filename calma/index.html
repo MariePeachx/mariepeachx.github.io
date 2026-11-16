@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f4ef">
   <meta name="description" content="Un espacio amable con ejercicios breves para acompañarte cuando sientes ansiedad o necesitas bajar el ritmo.">
-  <title>Calma — Un momento para ti</title>
+  <title>Acalmaia — Un momento para ti</title>
   <style>
     :root {
       color-scheme: light;
@@ -41,6 +41,8 @@
     .nav a { text-decoration: none; transition: color .2s ease; }
     .nav a:hover { color: var(--green-deep); }
     .nav .help-link { color: var(--green-deep); font-weight: 650; }
+    .header-action { min-height: 39px; padding: 0 15px; border: 0; border-radius: 999px; background: var(--green-deep); color: white; cursor: pointer; font-size: .77rem; font-weight: 700; }
+    .header-action:hover { background: #324b3d; }
 
     .hero { display: grid; grid-template-columns: 1.08fr .92fr; gap: clamp(36px, 7vw, 92px); align-items: center; padding: 76px 0 74px; }
     .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--green-deep); font-size: .7rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
@@ -141,6 +143,23 @@
     .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; }
     footer p { max-width: 600px; margin: 0; }
     .back-top { flex: 0 0 auto; color: var(--green-deep); text-decoration: none; }
+    .now-dialog { width: min(650px, calc(100% - 28px)); max-height: min(820px, calc(100dvh - 28px)); padding: 0; overflow: auto; border: 1px solid #dce2d8; border-radius: 28px; background: var(--paper); color: var(--ink); box-shadow: 0 28px 90px rgba(28, 42, 33, .25); }
+    .now-dialog::backdrop { background: rgba(30, 43, 36, .54); backdrop-filter: blur(4px); }
+    .now-dialog[open] { display: flex; flex-direction: column; }
+    .now-header { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 23px 27px; border-bottom: 1px solid var(--line); }
+    .now-brand { display: flex; align-items: center; gap: 11px; font-weight: 650; }
+    .now-close { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer; font-size: 1.15rem; }
+    .now-body { padding: clamp(26px, 6vw, 44px); }
+    .now-kicker { margin-bottom: 10px; color: var(--green-deep); font-size: .68rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
+    .now-count { margin: 0 0 14px; color: var(--muted); font-size: .76rem; }
+    .now-title { margin: 0 0 13px; font-family: var(--serif); font-size: clamp(2.35rem, 7vw, 3.4rem); font-weight: 400; line-height: 1.05; letter-spacing: -.045em; }
+    .now-copy { max-width: 520px; margin: 0; color: #626f65; font-size: .98rem; line-height: 1.75; }
+    .now-message { margin: 20px 0 0; padding: 16px 18px; border-left: 2px solid var(--green); border-radius: 0 12px 12px 0; background: var(--white); color: #536257; font-family: var(--serif); font-size: 1.14rem; }
+    .now-copy-status { min-height: 20px; margin: 8px 0 0; color: var(--green-deep); font-size: .74rem; }
+    .now-navigation { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 29px; }
+    .now-safety { margin: 0; padding: 17px 20px; border-top: 1px solid #eadbd5; background: #faf2ef; color: #795e58; font-size: .75rem; line-height: 1.6; }
+    .now-safety a { color: #76524c; font-weight: 750; }
+    .now-copy-button { margin-top: 12px; padding: 8px 0; border: 0; border-bottom: 1px solid #a8b4a7; background: none; color: var(--green-deep); cursor: pointer; font-size: .76rem; font-weight: 650; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
     .skip-link { position: absolute; top: 8px; left: -9999px; z-index: 20; padding: 9px 13px; border-radius: 8px; background: var(--ink); color: white; }
     .skip-link:focus { left: 12px; }
@@ -157,8 +176,9 @@
     @media (max-width: 620px) {
       .wrap { width: min(100% - 32px, 520px); }
       .topbar-inner { min-height: 64px; }
-      .nav { gap: 14px; font-size: .74rem; }
+      .nav { gap: 10px; font-size: .74rem; }
       .nav a:not(.help-link) { display: none; }
+      .header-action { min-height: 37px; padding: 0 12px; font-size: .73rem; }
       .hero { gap: 33px; padding: 48px 0 54px; }
       h1 { font-size: clamp(3.1rem, 16vw, 4.6rem); }
       .hero-copy { font-size: .98rem; }
@@ -175,6 +195,10 @@
       .reminder-icon { width: 42px; height: 42px; }
       .journal { padding: 24px 20px; }
       .footer-inner { flex-direction: column; }
+      .now-dialog { width: calc(100% - 12px); max-height: calc(100dvh - 12px); border-radius: 22px; }
+      .now-header { padding: 17px 19px; }
+      .now-body { padding: 27px 22px; }
+      .now-navigation .button { padding: 0 16px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -185,12 +209,13 @@
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <a class="brand" href="#inicio" aria-label="Calma, volver al inicio"><span class="brand-mark" aria-hidden="true">✳</span><span>calma</span></a>
+      <a class="brand" href="#inicio" aria-label="Acalmaia, volver al inicio"><span class="brand-mark" aria-hidden="true">✳</span><span>acalmaia</span></a>
       <nav class="nav" aria-label="Navegación principal">
         <a href="#respirar">Respirar</a>
         <a href="#aterrizar">Aterrizar</a>
         <a href="#escribir">Escribir</a>
         <a class="help-link" href="#apoyo">Necesito apoyo</a>
+        <button class="header-action" id="open-now-top" type="button">Ayuda ahora</button>
       </nav>
     </div>
   </header>
@@ -202,8 +227,8 @@
         <h1 id="hero-title">No hace falta resolverlo <em>todo ahora.</em></h1>
         <p class="hero-copy">Si la ansiedad está aquí contigo, podemos ir poco a poco. Elige algo pequeño para este momento; no tienes que hacerlo perfecto.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#respirar">Empezar con una respiración <span aria-hidden="true">&nbsp;↘</span></a>
-          <a class="button button-quiet" href="#aterrizar">Prefiero orientarme</a>
+          <button class="button button-primary" id="open-now-hero" type="button">Estoy teniendo un ataque <span aria-hidden="true">&nbsp;↗</span></button>
+          <a class="button button-quiet" href="#respirar">Quiero practicar algo <span aria-hidden="true">&nbsp;↘</span></a>
         </div>
         <p class="soft-note">A tu ritmo. Puedes parar cuando quieras.</p>
       </div>
@@ -296,12 +321,33 @@
           <a href="tel:024">Llamar al 024 <span aria-hidden="true">↗</span></a>
         </article>
       </div>
-      <p class="support-note">Si estás fuera de España, busca el servicio de emergencias o la línea de crisis de tu país. Calma ofrece ejercicios de acompañamiento y no sustituye la atención de profesionales de salud.</p>
+      <p class="support-note">Si estás fuera de España, busca el servicio de emergencias o la línea de crisis de tu país. Acalmaia ofrece ejercicios de acompañamiento y no sustituye la atención de profesionales de salud. Para más herramientas generales, consulta la guía de la <a href="https://www.who.int/es/publications/b/53604" target="_blank" rel="noopener noreferrer">OMS: «En tiempos de estrés, haz lo que importa»</a>.</p>
     </section>
   </main>
 
+  <dialog class="now-dialog" id="now-dialog" aria-labelledby="now-title" aria-describedby="now-copy">
+    <div class="now-header">
+      <div class="now-brand"><span class="brand-mark" aria-hidden="true">✳</span><span>acalmaia · ayuda ahora</span></div>
+      <button class="now-close" id="now-close" type="button" aria-label="Cerrar ayuda">×</button>
+    </div>
+    <div class="now-body">
+      <p class="now-kicker">Un paso a la vez</p>
+      <p class="now-count" id="now-count" aria-live="polite">Paso 1 de 5</p>
+      <h2 class="now-title" id="now-title" tabindex="-1">Busca un lugar seguro.</h2>
+      <p class="now-copy" id="now-copy" aria-live="polite">Si puedes, siéntate o apóyate en algo firme. Si no estás a salvo, aléjate del peligro y pide ayuda.</p>
+      <blockquote class="now-message" id="now-message" hidden>Me está costando; ¿puedes quedarte conmigo un rato o hablar conmigo por teléfono?</blockquote>
+      <button class="now-copy-button" id="copy-message" type="button" hidden>Copiar mensaje para pedir compañía</button>
+      <p class="now-copy-status" id="now-copy-status" aria-live="polite"></p>
+      <div class="now-navigation">
+        <button class="text-button" id="now-back" type="button" hidden>Anterior</button>
+        <button class="mini-button" id="now-next" type="button">Siguiente paso</button>
+      </div>
+    </div>
+    <p class="now-safety">Esta guía no puede confirmar qué causa los síntomas. Si es la primera vez, son distintos a lo habitual o te preocupa tu salud, busca atención sanitaria. Si hay peligro inmediato en España, <a href="tel:112">llama al 112</a>.</p>
+  </dialog>
+
   <footer>
-    <div class="wrap footer-inner"><p>Calma es un espacio de acompañamiento emocional. Toma de estos ejercicios solo lo que te resulte cómodo; puedes dejarlo cuando quieras.</p><a class="back-top" href="#inicio">Volver arriba ↑</a></div>
+    <div class="wrap footer-inner"><p>Acalmaia es un espacio de acompañamiento emocional. Toma de estos ejercicios solo lo que te resulte cómodo; puedes dejarlo cuando quieras.</p><a class="back-top" href="#inicio">Volver arriba ↑</a></div>
   </footer>
 
   <script>
@@ -420,6 +466,76 @@
       document.getElementById('journal-clear').addEventListener('click', () => {
         journal.value = '';
         journal.focus();
+      });
+
+      const nowDialog = document.getElementById('now-dialog');
+      const nowTitle = document.getElementById('now-title');
+      const nowCopy = document.getElementById('now-copy');
+      const nowCount = document.getElementById('now-count');
+      const nowMessage = document.getElementById('now-message');
+      const copyMessage = document.getElementById('copy-message');
+      const nowCopyStatus = document.getElementById('now-copy-status');
+      const nowBack = document.getElementById('now-back');
+      const nowNext = document.getElementById('now-next');
+      const nowSteps = [
+        { title: 'Busca un lugar seguro.', copy: 'Si puedes, siéntate o apóyate en algo firme. Si no estás a salvo, aléjate del peligro y pide ayuda.' },
+        { title: 'Nota el apoyo bajo tus pies.', copy: 'Presiona suavemente los pies contra el suelo. Nota el peso de tu cuerpo sobre la silla o la pared. No tienes que cambiar nada más.' },
+        { title: 'Mira tres cosas a tu alrededor.', copy: 'Nombra en silencio 3 cosas que ves, 2 sonidos que oyes y 1 sensación de contacto. Ve despacio; no hace falta hacerlo perfecto.' },
+        { title: 'Deja que el aire siga su curso.', copy: 'No intentes respirar hondo ni retener el aire. Deja que entre como pueda; si te resulta cómodo, suéltalo un poco más despacio. Si fijarte en la respiración te agobia, vuelve a notar los pies o un objeto.' },
+        { title: 'Busca compañía si la necesitas.', copy: 'Puedes enviar este mensaje a alguien de confianza. No tienes que explicar todo ahora.' }
+      ];
+      const companyMessage = 'Me está costando; ¿puedes quedarte conmigo un rato o hablar conmigo por teléfono?';
+      let nowStep = 0;
+
+      function renderNowStep() {
+        const step = nowSteps[nowStep];
+        nowTitle.textContent = step.title;
+        nowCopy.textContent = step.copy;
+        nowCount.textContent = `Paso ${nowStep + 1} de ${nowSteps.length}`;
+        nowBack.hidden = nowStep === 0;
+        nowMessage.hidden = nowStep !== nowSteps.length - 1;
+        copyMessage.hidden = nowStep !== nowSteps.length - 1;
+        nowCopyStatus.textContent = '';
+        nowNext.textContent = nowStep === nowSteps.length - 1 ? 'Cerrar por ahora' : 'Siguiente paso';
+      }
+
+      function openNow() {
+        nowStep = 0;
+        renderNowStep();
+        nowDialog.showModal();
+        nowTitle.focus();
+      }
+
+      document.getElementById('open-now-top').addEventListener('click', openNow);
+      document.getElementById('open-now-hero').addEventListener('click', openNow);
+      document.getElementById('now-close').addEventListener('click', () => nowDialog.close());
+      nowBack.addEventListener('click', () => {
+        if (nowStep > 0) {
+          nowStep -= 1;
+          renderNowStep();
+          nowTitle.focus();
+        }
+      });
+      nowNext.addEventListener('click', () => {
+        if (nowStep < nowSteps.length - 1) {
+          nowStep += 1;
+          renderNowStep();
+          nowTitle.focus();
+        } else {
+          nowDialog.close();
+        }
+      });
+      copyMessage.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(companyMessage);
+          nowCopyStatus.textContent = 'Mensaje copiado. Puedes pegarlo en una conversación.';
+        } catch {
+          nowCopyStatus.textContent = 'Puedes seleccionar y copiar el mensaje que aparece arriba.';
+        }
+      });
+      nowDialog.addEventListener('close', () => {
+        nowStep = 0;
+        renderNowStep();
       });
     })();
   </script>
