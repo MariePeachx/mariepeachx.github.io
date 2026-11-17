@@ -195,6 +195,27 @@
     .meditation-count { margin: 15px 0 11px !important; color: #879188 !important; font-size: .72rem !important; }
     .meditation-prompt { min-height: 82px; margin: 0 !important; color: #536257 !important; font-family: var(--serif); font-size: clamp(1.3rem, 3vw, 1.8rem) !important; line-height: 1.5; }
     .meditation-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+    .attention-shell { display: grid; grid-template-columns: 1.1fr .9fr; gap: 17px; align-items: stretch; }
+    .quiz-card, .affirmation-card { padding: clamp(23px, 4vw, 34px); border: 1px solid var(--line); border-radius: 24px; background: var(--white); }
+    .quiz-card { background: linear-gradient(145deg, #f0edf5, #faf8f4); border-color: #e2dce9; }
+    .affirmation-card { display: flex; flex-direction: column; background: linear-gradient(145deg, #fbf1e9, #fffefa); border-color: #eaded3; }
+    .attention-label { margin: 0 0 13px; color: #879188; font-size: .69rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .quiz-card h3, .affirmation-card h3 { font-size: 1.55rem; }
+    .quiz-help, .affirmation-help { margin: 0 0 18px; color: var(--muted); font-size: .81rem; }
+    .topic-select { width: 100%; min-height: 44px; margin-bottom: 19px; padding: 0 13px; border: 1px solid #d7d1e0; border-radius: 12px; background: rgba(255,255,255,.8); color: var(--ink); }
+    .quiz-progress { margin: 0 0 8px; color: #82788f; font-size: .7rem; }
+    .quiz-question { min-height: 56px; margin: 0 0 13px; color: #4f4b5a; font-family: var(--serif); font-size: 1.22rem; line-height: 1.4; }
+    .quiz-answers { display: grid; gap: 8px; }
+    .quiz-answer { min-height: 42px; padding: 9px 13px; border: 1px solid #d7d1e0; border-radius: 12px; background: rgba(255,255,255,.72); color: #5d5968; cursor: pointer; text-align: left; font-size: .78rem; }
+    .quiz-answer:hover:not(:disabled) { border-color: #b9aec8; background: #f3f0f6; }
+    .quiz-answer:disabled { cursor: default; }
+    .quiz-answer.is-correct { border-color: #9cab98; background: var(--green-pale); color: var(--green-deep); }
+    .quiz-feedback { min-height: 42px; margin: 12px 0 0 !important; color: #625c6d !important; font-size: .77rem !important; }
+    .quiz-next { margin-top: 8px; }
+    .affirmation-quote { flex: 1; display: flex; align-items: center; min-height: 150px; margin: 8px 0 20px; color: #5c5b50; font-family: var(--serif); font-size: clamp(1.45rem, 3vw, 1.9rem); line-height: 1.42; }
+    .affirmation-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+    .affirmation-status { min-height: 19px; margin: 10px 0 0 !important; color: var(--green-deep) !important; font-size: .72rem !important; }
+    .affirmation-note { margin: 11px 0 0 !important; color: #8a9188 !important; font-size: .68rem !important; }
     .voice-log { display: grid; gap: 8px; width: 100%; max-height: 220px; overflow: auto; }
     .voice-response, .voice-user { width: fit-content; max-width: 92%; margin: 0; padding: 13px 16px; border-radius: 16px 16px 16px 4px; background: white; color: #5d5968; font-family: var(--serif); font-size: 1rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
     .voice-user { justify-self: end; border-radius: 16px 16px 4px 16px; background: #e4e0eb; color: #5e566e; font-family: var(--sans); font-size: .8rem; }
@@ -238,6 +259,7 @@
       .practice-grid { grid-template-columns: 1fr; }
       .journal { grid-template-columns: 1fr; gap: 24px; }
       .diary-shell, .voice-shell { grid-template-columns: 1fr; gap: 23px; }
+      .attention-shell { grid-template-columns: 1fr; }
     }
     @media (max-width: 620px) {
       .wrap { width: min(100% - 32px, 520px); }
@@ -283,6 +305,7 @@
         <a href="#respirar">Respirar</a>
         <a href="#aterrizar">Aterrizar</a>
         <a href="#recursos">Recursos</a>
+        <a href="#atencion">Distracción</a>
         <a href="#meditacion">Pausa guiada</a>
         <a href="#diario">Mi diario</a>
         <a href="#voz">Voz</a>
@@ -395,9 +418,52 @@
       </div>
     </section>
 
+    <section class="section" id="atencion" aria-labelledby="atencion-title">
+      <div class="section-heading">
+        <div><p class="section-index">03 / Cambiar el foco</p><h2 id="atencion-title">Un momento para <em>ocupar la mente.</em></h2></div>
+        <p class="section-intro">Puedes hacer un mini test sobre algo que te guste o leer una frase amable. Sin cronómetro, notas ni obligación de terminar.</p>
+      </div>
+      <div class="attention-shell">
+        <article class="quiz-card" aria-labelledby="quiz-title">
+          <p class="attention-label">Mini test · sin puntuación</p>
+          <h3 id="quiz-title">Elige tu tema favorito</h3>
+          <p class="quiz-help">Responde por curiosidad. Si no sabes alguna, no pasa nada. Tu tema se recuerda solo en este navegador.</p>
+          <label class="sr-only" for="favorite-topic">Tema de las preguntas</label>
+          <select class="topic-select" id="favorite-topic">
+            <option value="">Elige un tema para empezar…</option>
+            <option value="naturaleza">Naturaleza y animales</option>
+            <option value="espacio">Espacio</option>
+            <option value="cocina">Cocina</option>
+            <option value="cine">Cine y series</option>
+            <option value="musica">Música</option>
+          </select>
+          <div id="quiz-content" hidden>
+            <p class="quiz-progress" id="quiz-progress" aria-live="polite"></p>
+            <p class="quiz-question" id="quiz-question"></p>
+            <div class="quiz-answers" id="quiz-answers" role="group" aria-label="Respuestas"></div>
+            <p class="quiz-feedback" id="quiz-feedback" aria-live="polite"></p>
+            <button class="mini-button quiz-next" id="quiz-next" type="button" hidden>Siguiente pregunta</button>
+          </div>
+        </article>
+        <article class="affirmation-card" aria-labelledby="affirmation-title">
+          <p class="attention-label">Una frase para ti</p>
+          <h3 id="affirmation-title">Afirmaciones amables</h3>
+          <p class="affirmation-help">Quédate con la que te haga bien; si alguna no te encaja, puedes pasarla.</p>
+          <p class="affirmation-quote" id="affirmation-quote" aria-live="polite"></p>
+          <div class="affirmation-controls">
+            <button class="mini-button" id="affirmation-next" type="button">Otra frase</button>
+            <button class="resource-action" id="affirmation-save" type="button" aria-pressed="false">Guardar frase</button>
+            <button class="text-button" id="affirmation-read" type="button">Escuchar</button>
+          </div>
+          <p class="affirmation-status" id="affirmation-status" aria-live="polite"></p>
+          <p class="affirmation-note">La frase guardada se queda solo en este navegador.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="section" id="meditacion" aria-labelledby="meditacion-title">
       <div class="section-heading">
-        <div><p class="section-index">03 / Pausa original</p><h2 id="meditacion-title">Unos minutos para <em>estar aquí.</em></h2></div>
+        <div><p class="section-index">04 / Pausa original</p><h2 id="meditacion-title">Unos minutos para <em>estar aquí.</em></h2></div>
         <p class="section-intro">Una meditación breve, creada para Acalmaia. Puedes mantener los ojos abiertos, saltarte pasos o parar cuando quieras. No hace falta seguir la respiración.</p>
       </div>
       <div class="practice meditation-card">
@@ -418,7 +484,7 @@
     <section class="section" id="diario" aria-labelledby="diario-title">
       <div class="diary-shell">
         <div class="diary-intro">
-          <p class="section-index">04 / Diario personal</p>
+          <p class="section-index">05 / Diario personal</p>
           <h2 id="diario-title">Un espacio <em>tuyo.</em></h2>
           <p>Guarda unas líneas sobre tu día, algo que te preocupe o una cosa que quieras recordar.</p>
           <p class="diary-privacy">El diario solo se guarda en este navegador cuando pulsas «Guardar». No se envía a ningún servicio. Si compartes el dispositivo, otras personas podrían verlo. Puedes borrar cada entrada o todas.</p>
@@ -453,7 +519,7 @@
     <section class="section" id="voz" aria-labelledby="voz-title">
       <div class="voice-shell">
         <div class="voice-intro">
-          <p class="section-index">05 / Compañía por voz</p>
+          <p class="section-index">06 / Compañía por voz</p>
           <h2 id="voz-title">Una voz amable, <em>a tu ritmo.</em></h2>
           <p>Escribe algo o toca una opción. Puedes pedir que la respuesta se lea en voz alta.</p>
           <p class="voice-prototype-note">Prototipo de chat guiado: usa respuestas preparadas y voz del navegador; todavía no es una IA conversacional. No usa el micrófono ni envía tu diario.</p>
@@ -480,7 +546,7 @@
     <section class="section" id="escribir" aria-labelledby="escribir-title">
       <div class="journal">
         <div class="journal-copy">
-          <p class="section-index">06 / Ponerlo en palabras</p>
+          <p class="section-index">07 / Ponerlo en palabras</p>
           <h2 id="escribir-title">¿Qué te gustaría <em>soltar?</em></h2>
           <p>No tienes que encontrar la frase perfecta. Puedes escribir una palabra, una preocupación o lo que necesitas en este instante.</p>
         </div>
@@ -494,7 +560,7 @@
 
     <section class="section" id="apoyo" aria-labelledby="apoyo-title">
       <div class="section-heading">
-        <div><p class="section-index">07 / Apoyo humano</p><h2 id="apoyo-title">No tienes que <em>llevarlo a solas.</em></h2></div>
+        <div><p class="section-index">08 / Apoyo humano</p><h2 id="apoyo-title">No tienes que <em>llevarlo a solas.</em></h2></div>
         <p class="section-intro">Hablar con alguien de confianza o con un profesional puede ayudarte a encontrar el apoyo adecuado para ti.</p>
       </div>
       <div class="support">
@@ -800,6 +866,181 @@
         if (synth) synth.cancel();
         statusElement.textContent = 'Voz detenida.';
       }
+
+      const quizBank = {
+        naturaleza: [
+          { question: '¿Cuál de estos mamíferos pone huevos?', answers: ['El delfín', 'El ornitorrinco', 'La nutria'], correct: 1, fact: 'El ornitorrinco es uno de los pocos mamíferos que pone huevos.' },
+          { question: '¿Cuántas patas tiene una araña?', answers: ['Seis', 'Ocho', 'Diez'], correct: 1, fact: 'Las arañas tienen ocho patas.' },
+          { question: '¿Cuál es el animal más grande que conocemos?', answers: ['La jirafa', 'El elefante africano', 'La ballena azul'], correct: 2, fact: 'La ballena azul es el animal más grande conocido.' }
+        ],
+        espacio: [
+          { question: '¿Qué planeta es famoso por sus anillos?', answers: ['Marte', 'Saturno', 'Mercurio'], correct: 1, fact: 'Saturno destaca por su amplio sistema de anillos.' },
+          { question: '¿Cuánto tarda aproximadamente la luz del Sol en llegar a la Tierra?', answers: ['8 minutos', '8 segundos', '8 horas'], correct: 0, fact: 'La luz solar tarda unos ocho minutos en llegar hasta aquí.' },
+          { question: '¿De qué planeta es satélite natural la Luna?', answers: ['La Tierra', 'Venus', 'Júpiter'], correct: 0, fact: 'La Luna es el satélite natural de la Tierra.' }
+        ],
+        cocina: [
+          { question: '¿Qué ingrediente es la base del hummus tradicional?', answers: ['Garbanzos', 'Arroz', 'Patata'], correct: 0, fact: 'El hummus suele prepararse con garbanzos, tahini, limón y otros ingredientes.' },
+          { question: '¿Qué hierba suele ser la protagonista del pesto verde?', answers: ['Albahaca', 'Menta', 'Romero'], correct: 0, fact: 'La albahaca es la hierba más habitual en el pesto verde.' },
+          { question: 'A presión atmosférica normal, ¿cerca de qué temperatura hierve el agua?', answers: ['50 °C', '100 °C', '150 °C'], correct: 1, fact: 'A nivel del mar, el agua hierve aproximadamente a 100 °C.' }
+        ],
+        cine: [
+          { question: '¿Quién suele dirigir las decisiones creativas de una película?', answers: ['La dirección', 'El público', 'La taquilla'], correct: 0, fact: 'La dirección coordina la visión creativa y el trabajo del rodaje.' },
+          { question: '¿Para qué sirve un storyboard?', answers: ['Planear visualmente las escenas', 'Vender entradas', 'Elegir el título al final'], correct: 0, fact: 'Un storyboard dibuja escenas para planear cómo se contarán visualmente.' },
+          { question: '¿Cómo se llama crear sonidos cotidianos para una película?', answers: ['Doblaje', 'Efectos Foley', 'Montaje de color'], correct: 1, fact: 'Los efectos Foley recrean sonidos, como pasos, para acompañar las imágenes.' }
+        ],
+        musica: [
+          { question: '¿Qué instrumento suele tener teclas blancas y negras?', answers: ['El piano', 'La flauta', 'El tambor'], correct: 0, fact: 'El piano produce sonido cuando sus teclas activan pequeños martillos sobre cuerdas.' },
+          { question: '¿Qué instrumento suele tener seis cuerdas?', answers: ['La guitarra', 'El violín', 'La trompeta'], correct: 0, fact: 'Muchas guitarras tienen seis cuerdas, aunque existen otros tipos.' },
+          { question: '¿Qué hace un metrónomo?', answers: ['Marca un pulso regular', 'Cambia la letra de una canción', 'Afina automáticamente cualquier voz'], correct: 0, fact: 'Un metrónomo marca pulsos regulares para ayudar a mantener el tempo.' }
+        ]
+      };
+      const topicSelect = document.getElementById('favorite-topic');
+      const quizContent = document.getElementById('quiz-content');
+      const quizProgress = document.getElementById('quiz-progress');
+      const quizQuestion = document.getElementById('quiz-question');
+      const quizAnswers = document.getElementById('quiz-answers');
+      const quizFeedback = document.getElementById('quiz-feedback');
+      const quizNext = document.getElementById('quiz-next');
+      let quizQuestions = [];
+      let quizIndex = 0;
+      let quizAnswered = false;
+      let quizRoundComplete = false;
+
+      function shuffled(items) {
+        const result = items.slice();
+        for (let index = result.length - 1; index > 0; index -= 1) {
+          const swapIndex = Math.floor(Math.random() * (index + 1));
+          [result[index], result[swapIndex]] = [result[swapIndex], result[index]];
+        }
+        return result;
+      }
+
+      function renderQuizQuestion() {
+        const question = quizQuestions[quizIndex];
+        quizContent.hidden = !question;
+        if (!question) return;
+        quizAnswered = false;
+        quizRoundComplete = false;
+        quizProgress.textContent = `Pregunta ${quizIndex + 1} de ${quizQuestions.length} · sin puntuación`;
+        quizQuestion.textContent = question.question;
+        quizFeedback.textContent = '';
+        quizNext.hidden = true;
+        quizNext.textContent = quizIndex === quizQuestions.length - 1 ? 'Terminar ronda' : 'Siguiente pregunta';
+        quizAnswers.replaceChildren();
+        question.answers.forEach((answer, answerIndex) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'quiz-answer';
+          button.textContent = answer;
+          button.addEventListener('click', () => {
+            if (quizAnswered) return;
+            quizAnswered = true;
+            const isCorrect = answerIndex === question.correct;
+            Array.from(quizAnswers.children).forEach((choice, choiceIndex) => {
+              choice.disabled = true;
+              if (choiceIndex === question.correct) choice.classList.add('is-correct');
+            });
+            quizFeedback.textContent = isCorrect
+              ? `¡Sí! ${question.fact}`
+              : `La respuesta era «${question.answers[question.correct]}». ${question.fact} No pasa nada: aquí no hay nota.`;
+            quizNext.hidden = false;
+          });
+          quizAnswers.append(button);
+        });
+      }
+
+      function startQuizRound(topic) {
+        quizQuestions = shuffled(quizBank[topic] || []);
+        quizIndex = 0;
+        renderQuizQuestion();
+      }
+
+      try {
+        const savedTopic = localStorage.getItem('acalmaia-favorite-topic-v1');
+        if (quizBank[savedTopic]) {
+          topicSelect.value = savedTopic;
+          startQuizRound(savedTopic);
+        }
+      } catch { /* El test sigue disponible aunque el navegador no guarde preferencias. */ }
+
+      topicSelect.addEventListener('change', () => {
+        const topic = topicSelect.value;
+        if (!topic) {
+          quizQuestions = [];
+          quizContent.hidden = true;
+          return;
+        }
+        try { localStorage.setItem('acalmaia-favorite-topic-v1', topic); } catch { /* No se guarda si el navegador lo impide. */ }
+        startQuizRound(topic);
+      });
+      quizNext.addEventListener('click', () => {
+        if (quizRoundComplete) {
+          startQuizRound(topicSelect.value);
+          return;
+        }
+        if (quizIndex < quizQuestions.length - 1) {
+          quizIndex += 1;
+          renderQuizQuestion();
+          return;
+        }
+        quizRoundComplete = true;
+        quizProgress.textContent = 'Ronda terminada · sin puntuación';
+        quizQuestion.textContent = 'Gracias por jugar un momento. Puedes dejarlo aquí o probar otra ronda.';
+        quizAnswers.replaceChildren();
+        quizFeedback.textContent = 'No hay nada que conseguir: solo has dado un pequeño descanso a tu atención.';
+        quizNext.textContent = 'Otra ronda';
+      });
+
+      const affirmations = [
+        'Estoy haciendo lo que puedo con lo que tengo ahora.',
+        'Puedo ir paso a paso; no necesito resolverlo todo de una vez.',
+        'Pedir compañía también es una forma de cuidarme.',
+        'Mi valor no depende de lo que consiga hoy.',
+        'Puedo tratarme con la paciencia que ofrecería a alguien querido.',
+        'Descansar también cuenta.',
+        'No tengo que sentirme bien para darme un poco de cuidado.',
+        'Puedo empezar por una cosa pequeña.',
+        'Lo que siento importa, y no es todo lo que soy.',
+        'Este momento puede cambiar; puedo ir minuto a minuto.'
+      ];
+      const affirmationQuote = document.getElementById('affirmation-quote');
+      const affirmationSave = document.getElementById('affirmation-save');
+      const affirmationStatus = document.getElementById('affirmation-status');
+      let affirmationIndex = 0;
+      let savedAffirmation = '';
+      try { savedAffirmation = localStorage.getItem('acalmaia-saved-affirmation-v1') || ''; } catch { /* La frase sigue disponible sin almacenamiento. */ }
+
+      function renderAffirmation() {
+        affirmationQuote.textContent = affirmations[affirmationIndex];
+        const isSaved = savedAffirmation === affirmations[affirmationIndex];
+        affirmationSave.setAttribute('aria-pressed', String(isSaved));
+        affirmationSave.textContent = isSaved ? 'Frase guardada ✓' : 'Guardar frase';
+      }
+      renderAffirmation();
+      document.getElementById('affirmation-next').addEventListener('click', () => {
+        let nextIndex = affirmationIndex;
+        while (affirmations.length > 1 && nextIndex === affirmationIndex) nextIndex = Math.floor(Math.random() * affirmations.length);
+        affirmationIndex = nextIndex;
+        affirmationStatus.textContent = '';
+        renderAffirmation();
+      });
+      affirmationSave.addEventListener('click', () => {
+        try {
+          if (savedAffirmation === affirmations[affirmationIndex]) {
+            localStorage.removeItem('acalmaia-saved-affirmation-v1');
+            savedAffirmation = '';
+            affirmationStatus.textContent = 'Frase quitada de guardadas.';
+          } else {
+            savedAffirmation = affirmations[affirmationIndex];
+            localStorage.setItem('acalmaia-saved-affirmation-v1', savedAffirmation);
+            affirmationStatus.textContent = 'Frase guardada en este navegador.';
+          }
+          renderAffirmation();
+        } catch {
+          affirmationStatus.textContent = 'Este navegador no permite guardar la frase ahora mismo.';
+        }
+      });
+      document.getElementById('affirmation-read').addEventListener('click', () => speakText(affirmations[affirmationIndex], affirmationStatus));
 
       const meditationSteps = [
         'Acomódate como estés. No hace falta cerrar los ojos ni sentirte de una forma concreta.',
