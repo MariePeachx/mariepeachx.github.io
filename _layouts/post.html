@@ -3,21 +3,25 @@ layout: blog
 ---
 {% assign meses = "enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre" | split: "," %}
 {% assign m = page.date | date: "%-m" | minus: 1 %}
+{% assign fondo = page.portada | default: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=75" %}
 <article>
- <header class="post-head wrap">
-  <div class="label">{% if page.categoria == 'curiosidades' %}Curiosidades del mundo{% else %}Diario de viaje{% endif %}{% if page.lugar %} · {{ page.lugar }}{% endif %} · {{ page.date | date: "%-d" }} de {{ meses[m] }} de {{ page.date | date: "%Y" }}</div>
-  <h1>{{ page.title }}</h1>
-  {% if page.resumen %}<p class="lead">{{ page.resumen }}</p>{% endif %}
+ <header class="post-hero" style="background-image:url('{{ fondo }}')">
+  <div class="wrap">
+   {% if page.lugar %}<span class="stamp">📍 {{ page.lugar }}</span>{% endif %}
+   <div class="kicker">{% if page.categoria == 'curiosidades' %}Curiosidades del mundo{% else %}Diario de viaje{% endif %} · {{ page.date | date: "%-d" }} de {{ meses[m] }} de {{ page.date | date: "%Y" }}</div>
+   <h1>{{ page.title }}</h1>
+   {% if page.resumen %}<p class="lead">{{ page.resumen }}</p>{% endif %}
+  </div>
+  {% include sello.html id="sello-post" clase="sello-post" %}
  </header>
- {% if page.portada %}<figure class="post-cover wrap"><img src="{{ page.portada }}" alt="{{ page.portada_alt | default: page.title | escape }}"></figure>{% endif %}
  <div class="post-body wrap">
   {% if page.video %}<div class="post-video{% if page.video_vertical %} vertical{% endif %}"><iframe src="https://www.youtube-nocookie.com/embed/{{ page.video }}?rel=0" title="{{ page.title | escape }}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>{% endif %}
   {{ content }}
-  {% if page.categoria == 'curiosidades' %}<p class="note-box">Esta entrada forma parte de <a href="/blog/curiosidades/">Curiosidades del mundo</a>: historias y datos curiosos de lugares de todo el mundo.</p>{% else %}<p class="note-box">¿Buscas dónde comer o dormir? Soy Local Guide en Google Maps: <a href="https://www.google.com/maps/contrib/108247171494160308205/reviews" target="_blank" rel="noopener noreferrer">mira mis reseñas ↗</a></p>{% endif %}
+  {% if page.categoria == 'curiosidades' %}<p class="curios-nota">🌍 Esta entrada forma parte de <a href="/blog/curiosidades/">Curiosidades del mundo</a>: historias y datos curiosos de lugares de todo el mundo.</p>{% else %}<a class="guide-box" href="https://www.google.com/maps/contrib/108247171494160308205/reviews" target="_blank" rel="noopener noreferrer"><span class="guide-star" aria-hidden="true">★</span><span><b>¿Buscas dónde comer o dormir?</b> Soy Local Guide en Google Maps. Mira mis reseñas de los sitios por los que paso ↗</span></a>{% endif %}
  </div>
  <nav class="post-nav wrap">
   {% if page.previous %}<a href="{{ page.previous.url }}">← {{ page.previous.title }}</a>{% else %}<span></span>{% endif %}
-  {% if page.categoria == 'curiosidades' %}<a href="/blog/curiosidades/">Todas las curiosidades</a>{% else %}<a href="/blog/">Todas las entradas</a>{% endif %}
+  {% if page.categoria == 'curiosidades' %}<a href="/blog/curiosidades/">Todas las curiosidades</a>{% else %}<a href="/blog/">Todas las etapas</a>{% endif %}
   {% if page.next %}<a href="{{ page.next.url }}">{{ page.next.title }} →</a>{% else %}<span></span>{% endif %}
  </nav>
 </article>
