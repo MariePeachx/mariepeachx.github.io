@@ -48,10 +48,17 @@ nav a{text-decoration:none;color:var(--soft)}nav a:hover{color:var(--ink)}
 .intro h1 i{font-style:italic}
 .intro p{max-width:540px;color:#4b443d;font-size:1.04rem;margin:0 0 14px}
 .intro .more{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;font-size:.95rem}
-.print{position:relative;justify-self:center;width:min(320px,100%);background:#fff;padding:12px 12px 46px;box-shadow:0 1px 2px #0001,0 18px 40px -18px #3a2a2055;transform:rotate(2.2deg)}
-.print img{aspect-ratio:4/5;object-fit:cover;object-position:center 40%;width:100%}
-.print figcaption{position:absolute;left:14px;bottom:13px;font:italic 1.05rem var(--serif);color:var(--soft)}
-.sticker{position:absolute;width:74px;height:74px;right:-24px;top:-26px;background:url(assets/mods/peachxsy-frutillas.png) -148px -74px/296px 148px no-repeat;image-rendering:pixelated;transform:rotate(-12deg);filter:drop-shadow(0 4px 4px #0002)}
+.intro .label{margin-bottom:18px}
+.portrait{margin:0;justify-self:end;width:min(340px,100%)}
+.portrait img{aspect-ratio:4/5;object-fit:cover;object-position:center 40%;width:100%;border-radius:4px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;padding:10px 22px;border-radius:2px;font-weight:500;transition:background .2s}
+.btn:hover{background:var(--rose)}
+.more{align-items:center}
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.services div{padding:22px 22px 8px 0}
+.services div+div{padding-left:22px;border-left:1px solid var(--line)}
+.services h3{font:500 1.02rem var(--sans);margin:0 0 8px}
+.services p{margin:0;color:var(--soft);font-size:.92rem}
 
 /* secciones */
 section{padding:84px 0}
@@ -59,20 +66,6 @@ section{padding:84px 0}
 .sec-head h2{font:400 clamp(2rem,4vw,2.9rem)/1 var(--serif);margin:0}
 .sec-head p{margin:0;color:var(--soft);max-width:440px;font-size:.95rem}
 
-/* shorts */
-.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.short{margin:0}
-.frame{position:relative;aspect-ratio:9/16;background:#1c1916;overflow:hidden;border-radius:6px}
-.frame button{all:unset;position:absolute;inset:0;cursor:pointer}
-.frame img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.frame button:hover img{transform:scale(1.035)}
-.frame button:focus-visible{outline:2px solid var(--rose);outline-offset:-4px}
-.frame .play{position:absolute;left:12px;bottom:12px;display:flex;align-items:center;gap:7px;background:#fffffff0;color:var(--ink);font-size:.74rem;font-weight:500;padding:5px 10px 5px 8px;border-radius:20px}
-.frame .play::before{content:"";border-left:8px solid var(--ink);border-block:5px solid transparent}
-.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.short figcaption{margin-top:10px;font-size:.92rem;line-height:1.35}
-.short figcaption span{display:block;color:var(--soft);font-size:.8rem;margin-top:3px}
-.after{margin-top:26px;font-size:.95rem}
 
 /* mods */
 .mods{background:var(--plum);color:#f1e6f2}
@@ -89,7 +82,6 @@ section{padding:84px 0}
 .mod ul{margin:18px 0 0;padding:0;list-style:none;font-size:.9rem;color:#cdbbd2}
 .mod li{padding:8px 0;border-top:1px solid #ffffff1a}
 .mod li b{font-weight:500;color:#fff}
-.fruits{margin-top:20px;height:74px;background:url(assets/mods/peachxsy-frutillas.png) 0 0/296px 148px repeat-x;image-rendering:pixelated;width:296px;max-width:100%;opacity:.95}
 .mods .u{background-image:linear-gradient(var(--rose),var(--rose))}
 .cf{margin-top:8px;font-size:.98rem}
 
@@ -102,11 +94,6 @@ section{padding:84px 0}
 .row .note{color:var(--soft);font-size:.84rem}
 
 /* trabajo */
-.work{display:grid;grid-template-columns:1fr 1fr;gap:56px}
-.work p{margin:0 0 14px;color:#4b443d}
-.work dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:12px 22px;font-size:.95rem}
-.work dt{font-weight:500}.work dd{margin:0;color:var(--soft)}
-.studies{margin-top:26px;font-size:.9rem;color:var(--soft)}
 
 /* contacto */
 .contact{background:var(--paper-2);padding-bottom:40px}
@@ -127,12 +114,12 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
 
 @media(max-width:860px){
  .intro{grid-template-columns:1fr;gap:56px;padding:44px 0 70px}
- .print{width:min(270px,78%)}
- .strip{grid-template-columns:repeat(4,72%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;margin-right:-16px;padding-right:16px}
- .short{scroll-snap-align:start}
+ .portrait{justify-self:start;width:min(300px,80%)}
+ .services{grid-template-columns:1fr 1fr}
+ .services div:nth-child(3){padding-left:0;border-left:0}
  .mod,.mod.flip{grid-template-columns:1fr;gap:26px}.mod.flip .shot{order:0}
  .row{grid-template-columns:1fr;gap:6px}.row .go{justify-self:start;text-align:left}
- .work,.contact-grid{grid-template-columns:1fr;gap:36px}
+ .contact-grid{grid-template-columns:1fr;gap:36px}
  section{padding:64px 0}
 }
 @media(max-width:720px){
@@ -142,7 +129,7 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
  nav a{width:100%;padding:10px 0;border-bottom:1px solid var(--line)}
  .lang{margin-top:12px}
 }
-@media(max-width:420px){.strip{grid-template-columns:repeat(4,80%)}}
+@media(max-width:520px){.services{grid-template-columns:1fr}.services div,.services div+div{padding:18px 0 4px;border-left:0}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -151,7 +138,7 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
 <header class="top"><div class="wrap">
  <a class="name" href="#main">Marie Peachx</a>
  <nav id="nav" aria-label="Principal">
-  <a href="#videos" data-i18n="nav.videos">Vídeos</a>
+  <a href="#servicios" data-i18n="nav.services">Servicios</a>
   <a href="#mods">Mods</a>
   <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
   <a href="/blog/" data-i18n="nav.blog">Blog</a>
@@ -165,45 +152,43 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
 <main id="main">
 <div class="wrap intro">
  <div>
-  <h1 data-i18n="intro.h">Edito vídeos, cuento historias del pasado y a veces construyo <i>mundos enteros</i> en Minecraft.</h1>
-  <p data-i18n="intro.p1">Llevo Meritamen, un canal de shorts de historia, y otro canal personal donde pruebo formatos y hago directos. Monto casi todo en DaVinci Resolve.</p>
-  <p data-i18n="intro.p2">Antes de esto estudié Laboratorio Clínico y Anatomía Patológica. De ahí me viene la manía de no contar nada sin haberlo buscado antes.</p>
+  <div class="label" data-i18n="intro.l">Editora de vídeo · Creadora de contenido</div>
+  <h1 data-i18n="intro.h">Edición de vídeo, contenido divulgativo y desarrollo de mods para Minecraft.</h1>
+  <p data-i18n="intro.p1">Edito vídeos para YouTube y redes sociales con DaVinci Resolve: montaje, subtítulos y diseño de sonido. Dirijo Meritamen, un canal de divulgación histórica, y desarrollo modpacks narrativos para Minecraft.</p>
+  <p data-i18n="intro.p2">Vengo del ámbito sanitario, con dos ciclos de grado superior. De ahí viene mi forma de trabajar: documentación rigurosa, método y atención al detalle.</p>
   <div class="more">
-   <a class="u" href="#contacto" data-i18n="intro.c1">Escríbeme</a>
-   <a class="u" href="/links/" data-i18n="intro.c2">Todos mis enlaces</a>
+   <a class="btn" href="#contacto" data-i18n="intro.c1">Contactar</a>
+   <a class="u" href="#servicios" data-i18n="intro.c2">Ver servicios</a>
   </div>
  </div>
- <figure class="print">
-  <img src="assets/marie-portrait.jpg" alt="Foto de Marie Peachx" width="320" height="400">
-  <figcaption>Marie</figcaption>
+ <figure class="portrait">
+  <img src="assets/marie-portrait.jpg" alt="Marie Peachx" width="320" height="400">
  </figure>
 </div>
 
-<section id="videos"><div class="wrap">
- <div class="sec-head"><h2 data-i18n="v.h">Shorts de Meritamen</h2><p data-i18n="v.p">Historia en menos de un minuto. Entre todos llevan más de 20.000 visualizaciones; estos son los que más gustaron.</p></div>
- <div class="strip">
-  <figure class="short"><div class="frame"><button type="button" data-yt="0LXNcg6nNeM" aria-label="Reproducir: El amor de María Antonieta"><img src="https://i.ytimg.com/vi/0LXNcg6nNeM/oardefault.jpg" alt="" loading="lazy"><span class="play">8,9K</span></button></div><figcaption>El amor de María Antonieta<span data-i18n="v.c1">Historia</span></figcaption></figure>
-  <figure class="short"><div class="frame"><button type="button" data-yt="2_DsqDriGM4" aria-label="Reproducir: Desmontando mitos sobre los vikingos"><img src="https://i.ytimg.com/vi/2_DsqDriGM4/oardefault.jpg" alt="" loading="lazy"><span class="play">4K</span></button></div><figcaption>Desmontando mitos sobre los vikingos<span data-i18n="v.c2">Mitos</span></figcaption></figure>
-  <figure class="short"><div class="frame"><button type="button" data-yt="KpsLBJnCZFM" aria-label="Reproducir: Tierra, el planeta olvidado de Star Wars"><img src="https://i.ytimg.com/vi/KpsLBJnCZFM/oardefault.jpg" alt="" loading="lazy"><span class="play">1,6K</span></button></div><figcaption>Tierra: el planeta olvidado de Star Wars<span data-i18n="v.c3">Cultura pop</span></figcaption></figure>
-  <figure class="short"><div class="frame"><button type="button" data-yt="jzjY3PAp8r8" aria-label="Reproducir: La princesa olvidada que desafió a la historia"><img src="https://i.ytimg.com/vi/jzjY3PAp8r8/oardefault.jpg" alt="" loading="lazy"><span class="play">1,6K</span></button></div><figcaption>La princesa olvidada que desafió a la historia<span data-i18n="v.c4">Egipto</span></figcaption></figure>
+<section id="servicios"><div class="wrap">
+ <div class="sec-head"><h2 data-i18n="w.h">Servicios</h2><p data-i18n="w.p1">Para canales de YouTube, marcas y eventos. Trabajo en español y en inglés.</p></div>
+ <div class="services">
+  <div><h3 data-i18n="w.t1">Formato vertical</h3><p data-i18n="w.d1">Shorts, Reels y TikTok con subtítulos, ritmo y música adaptados a cada plataforma.</p></div>
+  <div><h3 data-i18n="w.t2">Vídeo para YouTube</h3><p data-i18n="w.d2">Montaje de vídeos largos en DaVinci Resolve, del material en bruto a la exportación final.</p></div>
+  <div><h3 data-i18n="w.t3">Guion y documentación</h3><p data-i18n="w.d3">Investigación y estructura del contenido antes de grabar, especialmente en historia y ciencia.</p></div>
+  <div><h3 data-i18n="w.t4">Eventos</h3><p data-i18n="w.d4">Piezas para redes sociales de eventos, con experiencia en el sector de los videojuegos.</p></div>
  </div>
- <p class="after"><a class="u" href="https://www.youtube.com/@Meritamenhistoria/shorts" target="_blank" rel="noopener noreferrer" data-i18n="v.more">Ver el canal en YouTube ↗</a></p>
 </div></section>
 
 <section class="mods" id="mods"><div class="wrap">
- <div class="sec-head"><h2 data-i18n="m.h">Mods de Minecraft</h2><p data-i18n="m.p">Dos aventuras que he hecho de principio a fin: la historia, los textos, las texturas y los datapacks.</p></div>
+ <div class="sec-head"><h2 data-i18n="m.h">Desarrollo de mods</h2><p data-i18n="m.p">Modpacks de aventura para Minecraft Java. En ambos me he encargado de la narrativa, los textos, las texturas y la programación de los datapacks.</p></div>
 
  <article class="mod">
   <figure class="shot"><img src="assets/mods/peachxsy-castillo.jpg" alt="El castillo rosa de Peachxsy Alley al anochecer, rodeado de cerezos" width="1400" height="788" loading="lazy"></figure>
   <div>
    <div class="label">Forge 1.20.1</div>
    <h3>Peachxsy Alley</h3>
-   <p data-i18n="m1.p1">Un callejón rosa con diez puertas. Cada una lleva a una isla con su propia leyenda y un jefe de verdad: Sir Macarrón, la Reina de las Flores, el Capitán Barbarroso, Pies Planos… Al final del camino espera el One Peachx.</p>
-   <p data-i18n="m1.p2">Empezó como un regalo para KGSMarie y acabó siendo un modpack entero, con música para cada pelea y Frutillas Gordillas por todas partes.</p>
-   <div class="fruits" role="img" aria-label="Frutillas Gordillas, objetos del mod en pixel art"></div>
+   <p data-i18n="m1.p1">Aventura de jefes estructurada en diez dimensiones, cada una con su arena, su historia introductoria y un combate por fases. Integra jefes de Cataclysm, Mowzie's Mobs, Bosses of Mass Destruction, Aquamirae e Iron's Spells, renombrados y adaptados a la narrativa.</p>
    <ul>
-    <li data-i18n="m1.l1"><b>10 islas</b> · un puerto de pasta, un bosque de algodón de azúcar, una panadería de masa madre…</li>
-    <li data-i18n="m1.l2"><b>10 jefes</b> de Cataclysm, Mowzie's Mobs, Bosses of Mass Destruction, Aquamirae e Iron's Spells</li>
+    <li data-i18n="m1.l1"><b>10 dimensiones</b> con arena y ambientación propias</li>
+    <li data-i18n="m1.l2"><b>10 jefes</b> con cinemática previa, fases y música</li>
+    <li data-i18n="m1.l3"><b>Contenido propio</b>: objetos, texturas, libro de misiones y pantalla de título</li>
    </ul>
   </div>
  </article>
@@ -213,11 +198,11 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
   <div>
    <div class="label">Java 1.21.1 · Ad Astra</div>
    <h3>Space Legacy</h3>
-   <p data-i18n="m2.p1">Vas a la Luna en cohete a recuperar los «ecos» de doce objetos que la humanidad dejó allí: el Eagle del Apolo 11, el Lunokhod 1, el Chang'e 4… Te guía ECO, una vieja IA de control de misión, y cada máquina te cuenta su propia historia.</p>
+   <p data-i18n="m2.p1">Aventura divulgativa sobre la exploración lunar. El jugador viaja a la Luna para recuperar doce objetos de misiones reales, como el módulo Eagle del Apolo 11, el Lunokhod 1 o el Chang'e 4, guiado por un narrador de control de misión.</p>
    <ul>
-    <li data-i18n="m2.l1"><b>12 misiones</b> basadas en misiones reales</li>
-    <li data-i18n="m2.l2"><b>17 modelos 3D</b>, casi todos a tamaño real</li>
-    <li data-i18n="m2.l3"><b>Un museo</b> que se va llenando de maquetas y un muro con tu nombre al terminar</li>
+    <li data-i18n="m2.l1"><b>12 misiones</b> basadas en misiones espaciales reales</li>
+    <li data-i18n="m2.l2"><b>17 modelos 3D</b> de naves y vehículos, en su mayoría a escala real</li>
+    <li data-i18n="m2.l3"><b>Museo interactivo</b> que se completa con el progreso del jugador</li>
    </ul>
   </div>
  </article>
@@ -226,29 +211,23 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
 </div></section>
 
 <section id="proyectos"><div class="wrap">
- <div class="sec-head"><h2 data-i18n="p.h">Otras cosas que hago</h2></div>
+ <div class="sec-head"><h2 data-i18n="p.h">Experiencia y proyectos</h2></div>
  <div class="list">
-  <div class="row"><h3>Marie Peachx</h3><p data-i18n="p1">Mi canal personal. Aquí pruebo formatos nuevos, hago directos y practico edición.</p><a class="go u" href="https://www.youtube.com/channel/UCHzE-9M0bbHYNCtyb7x10KA" target="_blank" rel="noopener noreferrer">YouTube ↗</a></div>
-  <div class="row"><h3 data-i18n="p2.t">Blog de viajes</h3><p data-i18n="p2">Siempre vuelvo de viaje con el móvil lleno de vídeos, así que ahora también los escribo. Y dejo reseñas como Local Guide en Google Maps.</p><span class="go"><a class="u" href="/blog/" data-i18n="p2.l">Leer ↗</a> · <a class="u" href="https://www.google.com/maps/contrib/108247171494160308205/reviews" target="_blank" rel="noopener noreferrer">Maps ↗</a></span></div>
-  <div class="row"><h3 data-i18n="p3.t">Eventos gaming</h3><p data-i18n="p3">He organizado y coordinado eventos de videojuegos y de comunidades online.</p><span class="go note" data-i18n="p3.n">Organización</span></div>
-  <div class="row"><h3>Leadingirls</h3><p data-i18n="p4">Colaboré en una propuesta para acercar las profesiones digitales a estudiantes, con actividades y entrevistas sobre videojuegos.</p><span class="go note" data-i18n="p4.n">Educación</span></div>
-  <div class="row"><h3 data-i18n="p5.t">Un cortometraje</h3><p data-i18n="p5">Un corto independiente en el que ayudé con el guion, actué y me encargué del maquillaje.</p><span class="go note" data-i18n="p5.n">Guion · actriz · maquillaje</span></div>
+  <div class="row"><h3>Meritamen</h3><p data-i18n="p0">Canal de divulgación histórica en formato corto. Guion, documentación y edición propios; más de 20.000 visualizaciones.</p><a class="go u" href="https://www.youtube.com/@Meritamenhistoria" target="_blank" rel="noopener noreferrer">YouTube ↗</a></div>
+  <div class="row"><h3>Marie Peachx</h3><p data-i18n="p1">Canal personal dedicado a nuevos formatos y emisiones en directo.</p><a class="go u" href="https://www.youtube.com/channel/UCHzE-9M0bbHYNCtyb7x10KA" target="_blank" rel="noopener noreferrer">YouTube ↗</a></div>
+  <div class="row"><h3 data-i18n="p3.t">Eventos de videojuegos</h3><p data-i18n="p3">Organización y coordinación de eventos de videojuegos y de comunidades online.</p><span class="go note" data-i18n="p3.n">Organización</span></div>
+  <div class="row"><h3>Leadingirls</h3><p data-i18n="p4">Colaboración en una propuesta para acercar las profesiones digitales a estudiantes, con actividades y entrevistas sobre la industria del videojuego.</p><span class="go note" data-i18n="p4.n">Educación</span></div>
+  <div class="row"><h3 data-i18n="p5.t">Cortometraje</h3><p data-i18n="p5">Participación en un cortometraje independiente: colaboración en el guion, interpretación y maquillaje.</p><span class="go note" data-i18n="p5.n">Audiovisual</span></div>
+  <div class="row"><h3 data-i18n="p2.t">Blog de viajes</h3><p data-i18n="p2">Crónicas y vídeos de viaje. Local Guide en Google Maps.</p><span class="go"><a class="u" href="/blog/" data-i18n="p2.l">Blog ↗</a> · <a class="u" href="https://www.google.com/maps/contrib/108247171494160308205/reviews" target="_blank" rel="noopener noreferrer">Maps ↗</a></span></div>
  </div>
 </div></section>
 
-<section id="trabajo"><div class="wrap">
- <div class="sec-head"><h2 data-i18n="w.h">Si buscas quien te edite</h2></div>
- <div class="work">
-  <div>
-   <p data-i18n="w.p1">Si tienes un canal, una marca pequeña o un evento y necesitas a alguien para los vídeos, cuéntame qué tienes en mente. Trabajo en español y en inglés.</p>
-   <p class="studies" data-i18n="w.s">Formación: CFGS Laboratorio Clínico y Biomédico · CFGS Anatomía Patológica y Citodiagnóstico · edición de vídeo, aprendida con mis propios canales.</p>
-  </div>
-  <dl>
-   <dt data-i18n="w.t1">Vertical</dt><dd data-i18n="w.d1">Shorts, Reels y TikTok con subtítulos y música</dd>
-   <dt>YouTube</dt><dd data-i18n="w.d2">Vídeos largos montados en DaVinci Resolve</dd>
-   <dt data-i18n="w.t3">Guion</dt><dd data-i18n="w.d3">Buscar información y ordenar la idea antes de grabar, sobre todo en historia y ciencia</dd>
-   <dt data-i18n="w.t4">Eventos</dt><dd data-i18n="w.d4">Vídeos para redes, sobre todo de eventos de videojuegos</dd>
-  </dl>
+<section id="formacion"><div class="wrap">
+ <div class="sec-head"><h2 data-i18n="e.h">Formación</h2></div>
+ <div class="list">
+  <div class="row"><h3 data-i18n="e1.t">Laboratorio Clínico y Biomédico</h3><p data-i18n="e.c">Ciclo Formativo de Grado Superior</p><span class="go note">CFGS</span></div>
+  <div class="row"><h3 data-i18n="e2.t">Anatomía Patológica y Citodiagnóstico</h3><p data-i18n="e.c">Ciclo Formativo de Grado Superior</p><span class="go note">CFGS</span></div>
+  <div class="row"><h3 data-i18n="e3.t">Edición de vídeo</h3><p data-i18n="e3">Formación autodidacta y práctica continuada en producción propia con DaVinci Resolve.</p><span class="go note" data-i18n="e3.n">Actualidad</span></div>
  </div>
 </div></section>
 
@@ -281,31 +260,33 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
 (function(){
 const EN={
  'skip':'Skip to content','menu':'Menu',
- 'nav.videos':'Videos','nav.projects':'Projects','nav.blog':'Blog','nav.links':'Links','nav.contact':'Contact',
- 'intro.h':'I edit videos, tell stories from the past and sometimes build <i>whole worlds</i> in Minecraft.',
- 'intro.p1':'I run Meritamen, a channel of short history videos, and a personal channel where I try out formats and stream. I edit almost everything in DaVinci Resolve.',
- 'intro.p2':'Before this I studied Clinical Laboratory and Pathological Anatomy. That’s where my habit of never telling anything without looking it up first comes from.',
- 'intro.c1':'Write to me','intro.c2':'All my links',
- 'v.h':'Meritamen shorts','v.p':'History in under a minute. Together they have more than 20,000 views; these are the ones people liked most.',
- 'v.c1':'History','v.c2':'Myths','v.c3':'Pop culture','v.c4':'Egypt','v.more':'Watch the channel on YouTube ↗',
- 'm.h':'Minecraft mods','m.p':'Two adventures I made from start to finish: the story, the writing, the textures and the datapacks.',
- 'm1.p1':'A pink alley with ten doors. Each one leads to an island with its own legend and a real boss: Sir Macarrón, the Flower Queen, Captain Barbarroso, Pies Planos… At the end of the road waits the One Peachx.',
- 'm1.p2':'It started as a gift for KGSMarie and turned into a whole modpack, with music for every fight and Frutillas Gordillas everywhere.',
- 'm1.l1':'<b>10 islands</b> · a pasta harbour, a cotton-candy forest, a sourdough bakery…',
- 'm1.l2':'<b>10 bosses</b> from Cataclysm, Mowzie’s Mobs, Bosses of Mass Destruction, Aquamirae and Iron’s Spells',
- 'm2.p1':'You fly to the Moon by rocket to recover the “echoes” of twelve objects humanity left there: Apollo 11’s Eagle, Lunokhod 1, Chang’e 4… ECO, an old mission-control AI, guides you, and every machine tells you its own story.',
- 'm2.l1':'<b>12 missions</b> based on real ones','m2.l2':'<b>17 3D models</b>, most of them life-size','m2.l3':'<b>A museum</b> that fills up with scale models, and a wall with your name when you finish',
+ 'nav.services':'Services','nav.projects':'Projects','nav.blog':'Blog','nav.links':'Links','nav.contact':'Contact',
+ 'intro.l':'Video editor · Content creator',
+ 'intro.h':'Video editing, educational content and Minecraft mod development.',
+ 'intro.p1':'I edit videos for YouTube and social media in DaVinci Resolve: editing, captions and sound design. I run Meritamen, a history channel, and develop story-driven Minecraft modpacks.',
+ 'intro.p2':'I come from healthcare, with two higher vocational qualifications. That shapes how I work: thorough research, method and attention to detail.',
+ 'intro.c1':'Get in touch','intro.c2':'See services',
+ 'w.h':'Services','w.p1':'For YouTube channels, brands and events. I work in Spanish and English.',
+ 'w.t1':'Vertical video','w.d1':'Shorts, Reels and TikTok with captions, pacing and music tailored to each platform.',
+ 'w.t2':'YouTube video','w.d2':'Long-form editing in DaVinci Resolve, from raw footage to final export.',
+ 'w.t3':'Script and research','w.d3':'Researching and structuring content before filming, especially history and science.',
+ 'w.t4':'Events','w.d4':'Social media pieces for events, with experience in the video game industry.',
+ 'm.h':'Mod development','m.p':'Adventure modpacks for Minecraft Java. On both I handled the narrative, writing, textures and datapack programming.',
+ 'm1.p1':'A boss adventure built across ten dimensions, each with its own arena, intro story and multi-phase fight. It integrates bosses from Cataclysm, Mowzie’s Mobs, Bosses of Mass Destruction, Aquamirae and Iron’s Spells, renamed and adapted to the story.',
+ 'm1.l1':'<b>10 dimensions</b> with their own arenas and atmosphere','m1.l2':'<b>10 bosses</b> with intro cutscene, phases and music','m1.l3':'<b>Original content</b>: items, textures, quest book and title screen',
+ 'm2.p1':'An educational adventure about lunar exploration. The player travels to the Moon to recover twelve objects from real missions, such as Apollo 11’s Eagle, Lunokhod 1 or Chang’e 4, guided by a mission-control narrator.',
+ 'm2.l1':'<b>12 missions</b> based on real space missions','m2.l2':'<b>17 3D models</b> of spacecraft and vehicles, mostly to real scale','m2.l3':'<b>Interactive museum</b> that fills up as the player progresses',
  'm.cf':'My mods on CurseForge ↗',
- 'p.h':'Other things I do',
- 'p1':'My personal channel. I try new formats, stream and practise editing here.',
- 'p2.t':'Travel blog','p2':'I always come back from a trip with my phone full of videos, so now I write about them too. I also leave reviews as a Google Maps Local Guide.','p2.l':'Read ↗',
- 'p3.t':'Gaming events','p3':'I’ve organised and coordinated video game and online community events.','p3.n':'Organisation',
- 'p4':'I helped with a project introducing students to digital careers, with activities and interviews about video games.','p4.n':'Education',
- 'p5.t':'A short film','p5':'An independent short where I helped with the script, acted and did the makeup.','p5.n':'Script · acting · makeup',
- 'w.h':'If you need an editor','w.p1':'If you have a channel, a small brand or an event and need someone for your videos, tell me what you have in mind. I work in Spanish and English.',
- 'w.s':'Education: Higher VET in Clinical and Biomedical Laboratory · Higher VET in Pathological Anatomy and Cytodiagnosis · video editing, learnt on my own channels.',
- 'w.t1':'Vertical','w.d1':'Shorts, Reels and TikTok with captions and music','w.d2':'Long-form videos edited in DaVinci Resolve',
- 'w.t3':'Script','w.d3':'Researching and shaping the idea before filming, especially history and science','w.t4':'Events','w.d4':'Social media videos, mostly for gaming events',
+ 'p.h':'Experience and projects',
+ 'p0':'Short-form history channel. Own scripts, research and editing; over 20,000 views.',
+ 'p1':'Personal channel focused on new formats and live streams.',
+ 'p3.t':'Video game events','p3':'Organising and coordinating video game and online community events.','p3.n':'Organisation',
+ 'p4':'Collaboration on a project introducing students to digital careers, with activities and interviews about the video game industry.','p4.n':'Education',
+ 'p5.t':'Short film','p5':'Took part in an independent short film: script collaboration, acting and makeup.','p5.n':'Audiovisual',
+ 'p2.t':'Travel blog','p2':'Travel stories and videos. Google Maps Local Guide.','p2.l':'Blog ↗',
+ 'e.h':'Education','e.c':'Higher Vocational Education and Training',
+ 'e1.t':'Clinical and Biomedical Laboratory','e2.t':'Pathological Anatomy and Cytodiagnosis',
+ 'e3.t':'Video editing','e3':'Self-taught, with ongoing practice on my own productions in DaVinci Resolve.','e3.n':'Present',
  'c.h':'Contact','c.lt':'All my links','c.bmc':'to support me',
  'f':'Spain'
 };
@@ -330,16 +311,6 @@ const nav=document.getElementById('nav'),mb=document.getElementById('menuBtn');
 mb.addEventListener('click',()=>{const o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
 nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');mb.setAttribute('aria-expanded',false)}});
 
-document.querySelectorAll('[data-yt]').forEach(b=>{
- const img=b.querySelector('img');
- img.addEventListener('error',()=>{img.src='https://i.ytimg.com/vi/'+b.dataset.yt+'/hqdefault.jpg'},{once:true});
- b.addEventListener('click',()=>{
-  const f=document.createElement('iframe');
-  f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0&playsinline=1';
-  f.title=b.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;
-  b.replaceWith(f);
- });
-});
 document.getElementById('year').textContent=new Date().getFullYear();
 })();
 </script>
