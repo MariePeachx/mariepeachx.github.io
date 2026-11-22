@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Todos los enlaces de Mariepeachx: YouTube, Instagram, CurseForge, portfolio y apoyo.">
+<meta property="og:title" content="Mariepeachx">
+<meta property="og:description" content="Todos mis enlaces en un solo sitio.">
+<meta property="og:image" content="https://mariepeachx.github.io/links/avatar.jpg">
+<link rel="icon" href="avatar.jpg">
+<style>[hidden]{display:none!important} img{max-width:100%}</style>
+<title>Mariepeachx Links</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Layout: columna única. Portada con la captura del mundo, avatar pixelado encima, barra de XP y botones de bloque que se inclinan al pasar el ratón */
+:root {
+  --sky1: #8fb4ff;
+  --sky2: #d9e6ff;
+  --bg: #eef3ff;
+  --card: #ffffff;
+  --fg: #2d1e2b;
+  --muted: #6f5d72;
+  --pink: #f4a9bf;
+  --pink-deep: #d9668a;
+  --peach: #ff9b73;
+  --xp: #7ed957;
+  --xp-dark: #3f8a26;
+  --edge: #c9cfe6;
+  --ring: rgba(217, 102, 138, .45);
+  --pixel: "Pixelify Sans", "Courier New", monospace;
+  --body: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --sky1: #1d2346; --sky2: #2c2550; --bg: #171428; --card: #241f38; --fg: #f6eaf2; --muted: #b9a9c6;
+    --pink: #f4a9bf; --pink-deep: #ff8fb3; --peach: #ffad8a; --xp: #8fe866; --xp-dark: #4c9a2f;
+    --edge: #3a3358; --ring: rgba(255, 143, 179, .5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --sky1: #1d2346; --sky2: #2c2550; --bg: #171428; --card: #241f38; --fg: #f6eaf2; --muted: #b9a9c6;
+  --pink: #f4a9bf; --pink-deep: #ff8fb3; --peach: #ffad8a; --xp: #8fe866; --xp-dark: #4c9a2f;
+  --edge: #3a3358; --ring: rgba(255, 143, 179, .5);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+  margin: 0;
+  background: linear-gradient(180deg, var(--sky1) 0, var(--sky2) 420px, var(--bg) 900px);
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 40px;
+}
+
+/* nubes pixeladas */
+.clouds { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.cloud {
+  position: absolute; height: 18px; background: rgba(255,255,255,.75);
+  box-shadow: 18px -18px 0 rgba(255,255,255,.75), 54px -18px 0 rgba(255,255,255,.75);
+  animation: drift linear infinite;
+}
+:root[data-theme="dark"] .cloud { background: rgba(255,255,255,.08); box-shadow: 18px -18px 0 rgba(255,255,255,.08), 54px -18px 0 rgba(255,255,255,.08); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cloud { background: rgba(255,255,255,.08); box-shadow: 18px -18px 0 rgba(255,255,255,.08), 54px -18px 0 rgba(255,255,255,.08); } }
+@keyframes drift { from { transform: translateX(-200px); } to { transform: translateX(110vw); } }
+
+main { position: relative; z-index: 1; max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+
+/* portada + avatar */
+.hero { position: relative; }
+.banner {
+  display: block; width: 100%; aspect-ratio: 16 / 7; max-width: 100%;
+  object-fit: cover; object-position: 50% 62%;
+  border: 4px solid #fff; box-shadow: 0 6px 0 var(--edge);
+  image-rendering: pixelated;
+}
+.avatar-btn {
+  position: absolute; left: 50%; bottom: -58px; transform: translateX(-50%);
+  width: 124px; height: 124px; padding: 0; border: 5px solid #fff; border-radius: 0;
+  background: var(--pink); cursor: pointer;
+  box-shadow: 0 6px 0 var(--pink-deep);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.avatar-btn img { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
+.avatar-btn:hover { transform: translateX(-50%) translateY(-3px) rotate(-3deg); }
+.avatar-btn:active { transform: translateX(-50%) translateY(3px); box-shadow: 0 2px 0 var(--pink-deep); }
+.avatar-btn:focus-visible { outline: 4px solid var(--ring); outline-offset: 4px; }
+.avatar-btn.boing { animation: boing .45s ease; }
+@keyframes boing { 0%{transform:translateX(-50%) scale(1)} 30%{transform:translateX(-50%) scale(1.12,.9)} 60%{transform:translateX(-50%) scale(.95,1.08)} 100%{transform:translateX(-50%) scale(1)} }
+
+.head { margin-top: 64px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+h1 {
+  font-family: var(--pixel); font-weight: 700; font-size: 2.3rem; line-height: 1.1; margin: 0;
+  color: var(--fg); text-shadow: 3px 3px 0 var(--pink);
+  letter-spacing: .02em;
+}
+.handle {
+  font-family: var(--pixel); font-size: 1rem; color: var(--muted);
+  background: none; border: 0; cursor: pointer; padding: 4px 8px; border-radius: 6px;
+}
+.handle:hover { color: var(--pink-deep); }
+.handle:focus-visible { outline: 3px solid var(--ring); }
+.bio { margin: 4px 0 0; max-width: 36ch; }
+.hint { margin: 0; font-size: .8rem; color: var(--muted); }
+
+/* barra de XP */
+.xp { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.lvl { font-family: var(--pixel); font-weight: 700; color: var(--xp-dark); font-size: 1.1rem; text-shadow: 1px 1px 0 #fff; min-height: 1.4em; }
+.bar { width: 100%; height: 14px; background: #2b2b2b; border: 3px solid #111; position: relative; }
+.bar i { display: block; height: 100%; width: 0%; background: var(--xp); box-shadow: inset 0 -3px 0 var(--xp-dark); transition: width .25s ease; }
+.bar::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 calc(10% - 2px), #111 calc(10% - 2px) 10%); }
+
+/* accesorios sobre la skin */
+.gear { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.gear g { transform-box: fill-box; transform-origin: center; }
+.gear .new { animation: pop .5s cubic-bezier(.3,1.6,.5,1); }
+@keyframes pop { from { transform: scale(0) rotate(-20deg); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.gear .flap { animation: flap .35s ease-in-out infinite alternate, float 2.4s ease-in-out infinite; }
+@keyframes flap { from { transform: scaleX(1); } to { transform: scaleX(.45); } }
+@keyframes float { 50% { translate: 0 -1px; } }
+.gear .tw rect { animation: tw 1.6s ease-in-out infinite; }
+.gear .tw:nth-child(odd) rect { animation-delay: -.8s; }
+@keyframes tw { 50% { opacity: .15; } }
+
+.hotbar { display: flex; gap: 4px; justify-content: center; margin-top: 10px; flex-wrap: wrap; }
+.slot {
+  width: 50px; height: 50px; padding: 6px;
+  background: #8b8b8b; border: 3px solid #2b2b2b;
+  box-shadow: inset 3px 3px 0 #c6c6c6, inset -3px -3px 0 #555;
+  display: grid; place-items: center; cursor: pointer; position: relative;
+  font-family: var(--pixel); color: #3a3a3a; font-size: 1.3rem;
+}
+.slot svg { width: 100%; height: 100%; }
+.slot[disabled] { cursor: default; }
+.slot.on { outline: 3px solid #fff; outline-offset: -1px; box-shadow: inset 3px 3px 0 #c6c6c6, inset -3px -3px 0 #555, 0 0 0 3px #2b2b2b; }
+.slot.off svg { opacity: .35; }
+.slot:focus-visible { outline: 3px solid var(--ring); }
+.slot small { position: absolute; right: 2px; bottom: 0; font-size: .65rem; color: #fff; text-shadow: 1px 1px 0 #222; }
+.hotbar-note { margin: 4px 0 0; font-size: .78rem; color: var(--muted); text-align: center; }
+.reset { font: inherit; font-size: .78rem; color: var(--muted); background: none; border: 0; text-decoration: underline; cursor: pointer; padding: 2px 6px; }
+
+/* enlaces */
+.links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; perspective: 800px; }
+.link {
+  --rx: 0deg; --ry: 0deg;
+  display: flex; align-items: center; gap: 14px; width: 100%;
+  padding: 12px 16px; min-width: 0;
+  background: var(--card); color: var(--fg); text-decoration: none; text-align: left;
+  border: 3px solid var(--edge); border-radius: 0;
+  box-shadow: 0 6px 0 var(--edge);
+  font: inherit; cursor: pointer;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  position: relative; overflow: hidden;
+}
+.link::before {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 40%; left: -60%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent);
+  transform: skewX(-20deg); transition: left .5s ease;
+}
+.link:hover::before { left: 120%; }
+.link:hover { border-color: var(--pink); }
+.link:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--edge); }
+.link:focus-visible { outline: 4px solid var(--ring); outline-offset: 3px; }
+.ico { flex: none; width: 46px; height: 46px; display: grid; place-items: center; color: #fff; }
+.ico svg { width: 24px; height: 24px; fill: currentColor; }
+.txt { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.txt b { font-family: var(--pixel); font-weight: 700; font-size: 1.15rem; line-height: 1.2; }
+.txt span { font-size: .85rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.arrow { flex: none; font-family: var(--pixel); font-size: 1.3rem; color: var(--muted); transition: transform .15s ease; }
+.link:hover .arrow { transform: translateX(4px); color: var(--pink-deep); }
+
+.featured { background: var(--peach); border-color: #e0784f; box-shadow: 0 6px 0 #c05a35; color: #3b1a10; }
+.featured .txt span, .featured .arrow { color: #5a2a1a; }
+.featured:active { box-shadow: 0 2px 0 #c05a35; }
+.featured .ico { background: #3b1a10; color: #ffd9c7; }
+.ig { background: linear-gradient(45deg, #f9a03f, #e1306c 50%, #833ab4); }
+.yt { background: #e62117; }
+.cf { background: #f16436; }
+.pf { background: var(--pink-deep); }
+.tag { font-family: var(--pixel); font-size: .7rem; background: var(--pink); color: #3b1a2a; padding: 1px 6px; margin-left: 6px; vertical-align: middle; }
+
+.foot { text-align: center; color: var(--muted); font-size: .8rem; margin: 6px 0 0; }
+
+/* partículas y aviso */
+.fx { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+.p { position: fixed; width: 12px; height: 12px; will-change: transform, opacity; }
+.toast {
+  position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 6;
+  transform: translateX(-50%) translateY(20px); opacity: 0;
+  background: #2b2b2b; color: #fff; border: 3px solid #111;
+  font-family: var(--pixel); padding: 8px 14px; max-width: calc(100vw - 32px); text-align: center;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.toast.on { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+@media (max-width: 420px) {
+  h1 { font-size: 1.9rem; }
+  .avatar-btn { width: 108px; height: 108px; bottom: -50px; }
+  .head { margin-top: 56px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cloud { animation: none; }
+  .link, .avatar-btn, .arrow { transition: none; }
+  .link::before { display: none; }
+  .avatar-btn.boing { animation: none; }
+}
+</style>
+</head>
+<body>
+<div class="clouds" aria-hidden="true">
+  <div class="cloud" style="top:8%;width:90px;animation-duration:70s;animation-delay:-10s"></div>
+  <div class="cloud" style="top:18%;width:60px;animation-duration:95s;animation-delay:-50s"></div>
+  <div class="cloud" style="top:30%;width:120px;animation-duration:80s;animation-delay:-30s"></div>
+  <div class="cloud" style="top:55%;width:72px;animation-duration:110s;animation-delay:-70s"></div>
+  <div class="cloud" style="top:75%;width:100px;animation-duration:90s;animation-delay:-5s"></div>
+</div>
+
+<main>
+  <section class="hero">
+    <img class="banner" src="portada.jpg" alt="Mariepeachx en un mundo de bloques, con el mar y una colina detrás">
+    <button class="avatar-btn" id="avatar" type="button" aria-label="Toca a Mariepeachx para ganar XP">
+      <img src="avatar.jpg" alt="">
+      <svg class="gear" id="gear" viewBox="0 0 32 32" shape-rendering="crispEdges" aria-hidden="true"></svg>
+    </button>
+  </section>
+
+  <header class="head">
+    <h1>Mariepeachx</h1>
+    <button class="handle" id="handle" type="button" title="Copiar usuario">@mariepeachx ⧉</button>
+    <p class="bio">Vídeos, mods y proyectos con mucho rosa. Aquí tienes todos mis enlaces en un solo sitio.</p>
+    <p class="hint">Toca mi skin para subir de nivel. Cada nivel desbloquea un accesorio.</p>
+  </header>
+
+  <div class="xp" aria-live="polite">
+    <div class="lvl" id="lvl">Nivel 0</div>
+    <div class="bar" role="progressbar" aria-label="Experiencia" aria-valuemin="0" aria-valuemax="100" id="bar"><i id="fill"></i></div>
+    <div class="hotbar" id="hotbar" aria-label="Accesorios"></div>
+    <p class="hotbar-note" id="hotnote">Desbloquea accesorios y tócalos para ponerlos o quitarlos</p>
+    <button class="reset" id="reset" type="button" hidden>Empezar de nuevo</button>
+  </div>
+
+  <ul class="links">
+    <li>
+      <a class="link featured" href="https://buymeacoffee.com/mariepeachx" target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 8h13v5a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6V8zm13 1h1.5a2.5 2.5 0 0 1 0 5H17v-2h1.5a.5.5 0 0 0 0-1H17V9zM7 2.5c.8.8.8 1.7 0 2.5s-.8 1.7 0 2.5H5.6c-.8-.8-.8-1.7 0-2.5s.8-1.7 0-2.5H7zm4 0c.8.8.8 1.7 0 2.5s-.8 1.7 0 2.5H9.6c-.8-.8-.8-1.7 0-2.5s.8-1.7 0-2.5H11zM3 20h16v1.5H3z"/></svg></span>
+        <span class="txt"><b>Invítame a un café</b><span>buymeacoffee.com/mariepeachx</span></span>
+        <span class="arrow" aria-hidden="true">&gt;</span>
+      </a>
+    </li>
+    <li>
+      <a class="link" href="https://www.instagram.com/mariepeachx/" target="_blank" rel="noopener">
+        <span class="ico ig"><svg viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.3-3.3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg></span>
+        <span class="txt"><b>Instagram</b><span>instagram.com/mariepeachx</span></span>
+        <span class="arrow" aria-hidden="true">&gt;</span>
+      </a>
+    </li>
+    <li>
+      <a class="link" href="https://www.youtube.com/@mariepeachx" target="_blank" rel="noopener">
+        <span class="ico yt"><svg viewBox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg></span>
+        <span class="txt"><b>YouTube</b><span>youtube.com/@mariepeachx</span></span>
+        <span class="arrow" aria-hidden="true">&gt;</span>
+      </a>
+    </li>
+    <li>
+      <a class="link" href="https://www.curseforge.com/members/mariepeachx/projects" target="_blank" rel="noopener">
+        <span class="ico cf"><svg viewBox="0 0 24 24"><path d="M3 7h13c0 2 1.5 3 4 3v1.5c-2 0-3.2.8-3.7 2.2-.4 1.3.2 2.6 1.7 3.3H6.5c1.5-.7 2.1-2 1.7-3.3C7.8 12.3 6.3 11 3 10.5V7zm4 11h10v2H7z"/></svg></span>
+        <span class="txt"><b>Mis mods en CurseForge</b><span>curseforge.com/members/mariepeachx</span></span>
+        <span class="arrow" aria-hidden="true">&gt;</span>
+      </a>
+    </li>
+    <li>
+      <a class="link" href="https://mariepeachx.github.io" target="_blank" rel="noopener">
+        <span class="ico pf"><svg viewBox="0 0 24 24"><path d="M9 3h6a2 2 0 0 1 2 2v1h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3V5a2 2 0 0 1 2-2zm0 3h6V5H9v1zm-5 5v7h16v-7h-6v1h-4v-1H4z"/></svg></span>
+        <span class="txt"><b>Portfolio</b><span>mariepeachx.github.io</span></span>
+        <span class="arrow" aria-hidden="true">&gt;</span>
+      </a>
+    </li>
+  </ul>
+
+  <p class="foot">© 2026 Mariepeachx</p>
+</main>
+
+<div class="fx" id="fx" aria-hidden="true"></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var toastEl = document.getElementById('toast'), toastT;
+  function toast(msg) {
+    toastEl.textContent = msg; toastEl.classList.add('on');
+    clearTimeout(toastT); toastT = setTimeout(function () { toastEl.classList.remove('on'); }, 1800);
+  }
+
+  // partículas pixeladas
+  var colors = ['#f4a9bf', '#ff9b73', '#7ed957', '#ffffff', '#d9668a'];
+  function burst(x, y, n) {
+    if (reduce) return;
+    var fx = document.getElementById('fx');
+    for (var i = 0; i < n; i++) {
+      var p = document.createElement('div');
+      p.className = 'p';
+      p.style.left = x + 'px'; p.style.top = y + 'px';
+      p.style.background = colors[i % colors.length];
+      var s = 6 + Math.random() * 8; p.style.width = p.style.height = s + 'px';
+      fx.appendChild(p);
+      var a = Math.random() * Math.PI * 2, d = 60 + Math.random() * 110;
+      var dx = Math.cos(a) * d, dy = Math.sin(a) * d - 60;
+      p.animate([
+        { transform: 'translate(0,0) rotate(0)', opacity: 1 },
+        { transform: 'translate(' + dx + 'px,' + (dy + 140) + 'px) rotate(' + (Math.random() * 360) + 'deg)', opacity: 0 }
+      ], { duration: 800 + Math.random() * 500, easing: 'cubic-bezier(.2,.7,.4,1)' }).onfinish = (function (el) { return function () { el.remove(); }; })(p);
+    }
+  }
+
+  // accesorios en pixel art sobre una rejilla de 32x32 que cubre la skin
+  var PAL = { p: '#ff6fa3', y: '#ffd23f', g: '#4f9a63', r: '#ff3d6e', k: '#2d1e2b', w: '#ffffff',
+              Y: '#ffcc33', o: '#d99a1e', b: '#5ab0ff', v: '#9b7bff', V: '#c7b5ff', h: '#ffe9f2' };
+  var ITEMS = [
+    { id: 'flor', name: 'Flor', x: 22, y: 4, map: ['.p.p.', 'ppypp', '.ppp.', '..g..', '.gg..'] },
+    { id: 'mariposa', name: 'Mariposa', x: 1, y: 18, cls: 'flap', map: ['vv.vv', 'VvkvV', '.vkv.', 'vVkVv', 'v...v'] },
+    { id: 'gafas', name: 'Gafas de corazón', x: 9, y: 12, map: ['rh.rr....rh.rr', 'rrrrrkkkkrrrrr', '.rrr......rrr.', '..r........r..'] },
+    { id: 'corona', name: 'Corona', x: 10, y: -2, map: ['Y....YY....Y', 'YY..YYYY..YY', 'YYYYYYYYYYYY', 'YrYYYbbYYYrY', 'oooooooooooo'] },
+    { id: 'brillos', name: 'Brillos', sparkle: true, x: 0, y: 0,
+      spots: [[0, 3], [27, 1], [29, 15], [1, 26], [26, 27]], map: ['.w.', 'wyw', '.w.'] }
+  ];
+  function rects(map, ox, oy) {
+    var s = '';
+    map.forEach(function (row, r) {
+      for (var c = 0; c < row.length; c++) {
+        var ch = row[c];
+        if (PAL[ch]) s += '<rect x="' + (ox + c) + '" y="' + (oy + r) + '" width="1.02" height="1.02" fill="' + PAL[ch] + '"/>';
+      }
+    });
+    return s;
+  }
+  function itemSvg(it) {
+    if (it.sparkle) return it.spots.map(function (p) { return '<g class="tw">' + rects(it.map, p[0], p[1]) + '</g>'; }).join('');
+    return rects(it.map, it.x, it.y);
+  }
+  function iconSvg(it) {
+    var w = it.map[0].length, h = it.map.length, m = Math.max(w, h);
+    var ox = it.sparkle ? 0 : it.x, oy = it.sparkle ? 0 : it.y;
+    var vb = (ox - (m - w) / 2) + ' ' + (oy - (m - h) / 2) + ' ' + m + ' ' + m;
+    return '<svg viewBox="' + vb + '" shape-rendering="crispEdges">' + rects(it.map, ox, oy) + '</svg>';
+  }
+
+  // XP al tocar la skin
+  var xp = 0, level = 0, hiddenItems = {};
+  try {
+    var saved = JSON.parse(localStorage.getItem('mp-xp') || 'null');
+    if (saved) { xp = saved.xp | 0; level = saved.level | 0; hiddenItems = saved.hidden || {}; }
+  } catch (e) {}
+  function save() { try { localStorage.setItem('mp-xp', JSON.stringify({ xp: xp, level: level, hidden: hiddenItems })); } catch (e) {} }
+  var fill = document.getElementById('fill'), lvl = document.getElementById('lvl'), bar = document.getElementById('bar');
+  var gear = document.getElementById('gear'), hotbar = document.getElementById('hotbar');
+  var resetBtn = document.getElementById('reset');
+  var maxLevel = ITEMS.length;
+  if (level > maxLevel) { level = maxLevel; xp = 0; }
+
+  function renderGear(newId) {
+    // orden de capas: brillos y mariposa detrás, corona encima
+    var order = ['brillos', 'mariposa', 'flor', 'gafas', 'corona'];
+    gear.innerHTML = order.map(function (id) {
+      var i = ITEMS.findIndex(function (it) { return it.id === id; }), it = ITEMS[i];
+      if (i >= level || hiddenItems[id]) return '';
+      var cls = [it.cls || '', id === newId && !reduce ? 'new' : ''].join(' ').trim();
+      return '<g data-id="' + id + '"' + (cls ? ' class="' + cls + '"' : '') + '>' + itemSvg(it) + '</g>';
+    }).join('');
+  }
+  function renderHotbar() {
+    hotbar.innerHTML = '';
+    ITEMS.forEach(function (it, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'slot';
+      if (i < level) {
+        var on = !hiddenItems[it.id];
+        b.classList.add(on ? 'on' : 'off');
+        b.innerHTML = iconSvg(it) + '<small>' + (i + 1) + '</small>';
+        b.title = it.name + (on ? ' (puesto)' : ' (quitado)');
+        b.setAttribute('aria-label', it.name + (on ? ', puesto. Toca para quitar' : ', quitado. Toca para poner'));
+        b.addEventListener('click', function () {
+          hiddenItems[it.id] = !hiddenItems[it.id];
+          if (!hiddenItems[it.id]) delete hiddenItems[it.id];
+          save(); renderGear(hiddenItems[it.id] ? null : it.id); renderHotbar();
+        });
+      } else {
+        b.disabled = true; b.textContent = '?';
+        b.title = 'Se desbloquea en el nivel ' + (i + 1);
+        b.setAttribute('aria-label', 'Bloqueado hasta el nivel ' + (i + 1));
+      }
+      hotbar.appendChild(b);
+    });
+  }
+  function render(newId) {
+    var full = level >= maxLevel;
+    fill.style.width = (full ? 100 : xp) + '%'; bar.setAttribute('aria-valuenow', full ? 100 : xp);
+    lvl.textContent = full ? 'Nivel ' + level + ' · ¡Skin completa!' : 'Nivel ' + level;
+    resetBtn.hidden = level === 0 && xp === 0;
+    renderGear(newId); renderHotbar();
+  }
+  render();
+  resetBtn.addEventListener('click', function () {
+    xp = 0; level = 0; hiddenItems = {}; save(); render(); toast('Vuelves al nivel 0');
+  });
+  var av = document.getElementById('avatar');
+  av.addEventListener('click', function (e) {
+    var r = av.getBoundingClientRect();
+    burst(r.left + r.width / 2, r.top + r.height / 2, 14);
+    av.classList.remove('boing'); void av.offsetWidth; av.classList.add('boing');
+    if (level >= maxLevel) { toast('¡Ya tienes todos los accesorios!'); return; }
+    xp += 20;
+    var newId = null;
+    if (xp >= 100) {
+      xp = 0; level++;
+      var it = ITEMS[level - 1]; newId = it.id;
+      burst(r.left + r.width / 2, r.top + r.height / 2, 36);
+      toast('Nivel ' + level + ': desbloqueas ' + it.name.toLowerCase());
+    }
+    if (newId) render(newId);
+    else {
+      fill.style.width = xp + '%'; bar.setAttribute('aria-valuenow', xp);
+      resetBtn.hidden = false;
+    }
+    save();
+  });
+
+  // copiar usuario
+  document.getElementById('handle').addEventListener('click', function () {
+    var t = '@mariepeachx';
+    var done = function () { toast('Usuario copiado'); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(done, function () { toast(t); });
+    } else { toast(t); }
+  });
+
+  // inclinación 3D de los botones
+  if (!reduce) {
+    document.querySelectorAll('.link').forEach(function (el) {
+      el.addEventListener('pointermove', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        el.style.setProperty('--ry', (x * 8) + 'deg');
+        el.style.setProperty('--rx', (-y * 10) + 'deg');
+      });
+      el.addEventListener('pointerleave', function () {
+        el.style.setProperty('--ry', '0deg'); el.style.setProperty('--rx', '0deg');
+      });
+      el.addEventListener('click', function (e) {
+        if (el.tagName === 'A') burst(e.clientX || 0, e.clientY || 0, 8);
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
