@@ -92,6 +92,7 @@ section{padding:84px 0}
 .row p{margin:0;color:#4b443d;font-size:.95rem}
 .row .go{justify-self:end;font-size:.88rem;text-align:right}
 .row .note{color:var(--soft);font-size:.84rem}
+.row.sub h3{font-size:1.2rem;padding-left:18px;border-left:2px solid var(--rose)}
 
 /* trabajo */
 
@@ -225,9 +226,11 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
 <section id="formacion"><div class="wrap">
  <div class="sec-head"><h2 data-i18n="e.h">Formación</h2></div>
  <div class="list">
+  <div class="row"><h3 data-i18n="e3.t">Edición de vídeo</h3><p data-i18n="e3">Formación oficial de Blackmagic Design y práctica continuada en producción propia con DaVinci Resolve.</p><span class="go note" data-i18n="e3.n">Actualidad</span></div>
+  <div class="row sub"><h3 data-i18n="e4.t">Guía de introducción a DaVinci Resolve 20</h3><p data-i18n="e4">Módulos Montaje y Edición, etalonaje, efectos visuales con Fusion y procesamiento de audio con Fairlight.</p><span class="go note">Blackmagic Design</span></div>
+  <div class="row sub"><h3 data-i18n="e5.t">Guía de edición con DaVinci Resolve 20</h3><p data-i18n="e5">Montaje de entrevistas, escenas de ficción, documental y videoclip; transcripción automática, efectos de velocidad variable, mezcla de audio y entrega para plataformas digitales y televisión.</p><span class="go note">Blackmagic Design</span></div>
   <div class="row"><h3 data-i18n="e1.t">Laboratorio Clínico y Biomédico</h3><p data-i18n="e.c">Ciclo Formativo de Grado Superior</p><span class="go note">CFGS</span></div>
   <div class="row"><h3 data-i18n="e2.t">Anatomía Patológica y Citodiagnóstico</h3><p data-i18n="e.c">Ciclo Formativo de Grado Superior</p><span class="go note">CFGS</span></div>
-  <div class="row"><h3 data-i18n="e3.t">Edición de vídeo</h3><p data-i18n="e3">Formación autodidacta y práctica continuada en producción propia con DaVinci Resolve.</p><span class="go note" data-i18n="e3.n">Actualidad</span></div>
  </div>
 </div></section>
 
@@ -286,7 +289,9 @@ const EN={
  'p2.t':'Travel blog','p2':'Travel stories and videos. Google Maps Local Guide.','p2.l':'Blog ↗',
  'e.h':'Education','e.c':'Higher Vocational Education and Training',
  'e1.t':'Clinical and Biomedical Laboratory','e2.t':'Pathological Anatomy and Cytodiagnosis',
- 'e3.t':'Video editing','e3':'Self-taught, with ongoing practice on my own productions in DaVinci Resolve.','e3.n':'Present',
+ 'e3.t':'Video editing','e3':'Official Blackmagic Design training and ongoing practice on my own productions in DaVinci Resolve.','e3.n':'Present',
+ 'e4.t':'The Beginner’s Guide to DaVinci Resolve 20','e4':'Cut and Edit pages, colour grading, Fusion visual effects and Fairlight audio.',
+ 'e5.t':'The Editor’s Guide to DaVinci Resolve 20','e5':'Editing interviews, drama scenes, documentary and music videos; automatic transcription, speed effects, audio mixing and delivery for digital platforms and broadcast.',
  'c.h':'Contact','c.lt':'All my links','c.bmc':'to support me',
  'f':'Spain'
 };
