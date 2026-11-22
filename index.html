@@ -86,6 +86,21 @@ section{padding:84px 0}
 .mods .u{background-image:linear-gradient(var(--rose),var(--rose))}
 .cf{margin-top:8px;font-size:.98rem}
 
+/* viajes */
+.travel{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start}
+.travel .shot{margin:0}
+.travel .shot img{width:100%;height:auto;border-radius:6px}
+.travel figcaption{font-size:.82rem;color:var(--soft);margin-top:8px}
+.travel p{margin:0 0 14px;color:#4b443d}
+.next{background:var(--white,#fffdf9);border-radius:8px;padding:20px 22px;margin:22px 0}
+.next .tag{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);font-weight:700}
+.next h3{font:400 1.7rem/1.1 var(--serif);font-variation-settings:"SOFT" 100;margin:8px 0 8px}
+.next p{margin:0;font-size:.95rem}
+.links-inline{display:flex;gap:22px;flex-wrap:wrap}
+.places{font-size:.95rem;line-height:1.8}
+.places .label{display:block;margin-bottom:2px}
+@media(max-width:860px){.travel{grid-template-columns:1fr;gap:26px}}
+
 /* otros proyectos */
 .list{border-top:1px solid var(--line)}
 .row{display:grid;grid-template-columns:220px 1fr 160px;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
@@ -142,6 +157,7 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
  <nav id="nav" aria-label="Principal">
   <a href="#servicios" data-i18n="nav.services">Servicios</a>
   <a href="#mods">Mods</a>
+  <a href="#viajes" data-i18n="nav.travel">Viajes</a>
   <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
   <a href="/blog/" data-i18n="nav.blog">Blog</a>
   <a href="/links/" data-i18n="nav.links">Enlaces</a>
@@ -212,6 +228,24 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
  <p class="cf"><a class="u" href="https://www.curseforge.com/members/mariepeachx/projects" target="_blank" rel="noopener noreferrer" data-i18n="m.cf">Mis mods en CurseForge ↗</a></p>
 </div></section>
 
+<section id="viajes"><div class="wrap">
+ <div class="sec-head"><h2 data-i18n="t.h">Viajes</h2><p data-i18n="t.p">La curiosidad que me lleva a documentarme para cada vídeo es la misma que me hace viajar.</p></div>
+ <div class="travel">
+  <figure class="shot"><img src="assets/viajes/viena/portada.jpg" alt="Luces de Navidad sobre el Graben de Viena, con la catedral de San Esteban al fondo" width="1600" height="900" loading="lazy"><figcaption data-i18n="t.cap">Viena, noviembre de 2025. Fotograma de mi GoPro.</figcaption></figure>
+  <div>
+   <p data-i18n="t.p1">Siempre que viajo vuelvo con horas de material grabado. Me interesa entender los sitios: su historia, por qué son como son y qué los hace distintos.</p>
+   <p data-i18n="t.p2">Lo cuento en mi blog de viajes, junto a una sección de curiosidades sobre lugares de todo el mundo. También dejo reseñas como Local Guide en Google Maps.</p>
+   <p class="places"><span class="label" data-i18n="t.pl">He estado en</span> <span data-i18n="t.pll">Italia · París · Estambul · islas griegas · Viena · Budapest · Bratislava · Brno · Albania · Tailandia · Madrid · Granada · Santiago de Compostela</span></p>
+   <div class="next">
+    <span class="tag" data-i18n="t.tag">Próximo proyecto · En preparación</span>
+    <h3 data-i18n="t.nt">Vídeos de viaje</h3>
+    <p data-i18n="t.np">Una serie de vídeos montados a partir de mis grabaciones de viaje, con la misma atención a la historia de cada lugar que pongo en Meritamen.</p>
+   </div>
+   <p class="links-inline"><a class="u" href="/blog/" data-i18n="t.l1">Leer el blog ↗</a><a class="u" href="https://www.google.com/maps/contrib/108247171494160308205/reviews" target="_blank" rel="noopener noreferrer" data-i18n="t.l2">Reseñas en Google Maps ↗</a></p>
+  </div>
+ </div>
+</div></section>
+
 <section id="proyectos"><div class="wrap">
  <div class="sec-head"><h2 data-i18n="p.h">Experiencia y proyectos</h2></div>
  <div class="list">
@@ -220,7 +254,6 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
   <div class="row"><h3 data-i18n="p3.t">Eventos de videojuegos</h3><p data-i18n="p3">Organización y coordinación de eventos de videojuegos y de comunidades online.</p><span class="go note" data-i18n="p3.n">Organización</span></div>
   <div class="row"><h3>Leadingirls</h3><p data-i18n="p4">Colaboración en una propuesta para acercar las profesiones digitales a estudiantes, con actividades y entrevistas sobre la industria del videojuego.</p><span class="go note" data-i18n="p4.n">Educación</span></div>
   <div class="row"><h3 data-i18n="p5.t">Cortometraje</h3><p data-i18n="p5">Participación en un cortometraje independiente: colaboración en el guion, interpretación y maquillaje.</p><span class="go note" data-i18n="p5.n">Audiovisual</span></div>
-  <div class="row"><h3 data-i18n="p2.t">Blog de viajes</h3><p data-i18n="p2">Crónicas y vídeos de viaje. Local Guide en Google Maps.</p><span class="go"><a class="u" href="/blog/" data-i18n="p2.l">Blog ↗</a> · <a class="u" href="https://www.google.com/maps/contrib/108247171494160308205/reviews" target="_blank" rel="noopener noreferrer">Maps ↗</a></span></div>
  </div>
 </div></section>
 
@@ -264,6 +297,14 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
 (function(){
 const EN={
  'skip':'Skip to content','menu':'Menu',
+ 't.h':'Travel','t.p':'The curiosity that makes me research every video is the same one that makes me travel.',
+ 't.cap':'Vienna, November 2025. A frame from my GoPro.',
+ 't.p1':'Whenever I travel I come back with hours of footage. I want to understand places: their history, why they are the way they are and what makes them different.',
+ 't.p2':'I write about it on my travel blog, alongside a section of curiosities about places around the world. I also leave reviews as a Google Maps Local Guide.',
+ 't.tag':'Next project · In progress','t.nt':'Travel videos',
+ 't.np':'A series of videos edited from my travel footage, with the same attention to each place’s history that I put into Meritamen.',
+ 't.pl':'Places I’ve been','t.pll':'Italy · Paris · Istanbul · Greek islands · Vienna · Budapest · Bratislava · Brno · Albania · Thailand · Madrid · Granada · Santiago de Compostela',
+ 't.l1':'Read the blog ↗','t.l2':'Google Maps reviews ↗','nav.travel':'Travel',
  'nav.services':'Services','nav.projects':'Projects','nav.blog':'Blog','nav.links':'Links','nav.contact':'Contact',
  'intro.l':'Video editor · Content creator',
  'intro.h':'Video editing, educational content and Minecraft mod development.',

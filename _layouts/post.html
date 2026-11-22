@@ -13,7 +13,7 @@ layout: blog
  <div class="post-body wrap">
   {% if page.video %}<div class="post-video{% if page.video_vertical %} vertical{% endif %}"><iframe src="https://www.youtube-nocookie.com/embed/{{ page.video }}?rel=0" title="{{ page.title | escape }}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>{% endif %}
   {{ content }}
-  {% if page.categoria == 'curiosidades' %}<p class="note-box">Esta entrada forma parte de <a href="/blog/curiosidades/">Curiosidades del mundo</a>: sitios en los que todavía no he estado, pero que ya tengo apuntados.</p>{% else %}<p class="note-box">¿Buscas dónde comer o dormir? Soy Local Guide en Google Maps: <a href="https://www.google.com/maps/contrib/108247171494160308205/reviews" target="_blank" rel="noopener noreferrer">mira mis reseñas ↗</a></p>{% endif %}
+  {% if page.categoria == 'curiosidades' %}<p class="note-box">Esta entrada forma parte de <a href="/blog/curiosidades/">Curiosidades del mundo</a>: historias y datos curiosos de lugares de todo el mundo.</p>{% else %}<p class="note-box">¿Buscas dónde comer o dormir? Soy Local Guide en Google Maps: <a href="https://www.google.com/maps/contrib/108247171494160308205/reviews" target="_blank" rel="noopener noreferrer">mira mis reseñas ↗</a></p>{% endif %}
  </div>
  <nav class="post-nav wrap">
   {% if page.previous %}<a href="{{ page.previous.url }}">← {{ page.previous.title }}</a>{% else %}<span></span>{% endif %}
