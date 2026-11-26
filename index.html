@@ -2,166 +2,227 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Marie Peachx</title>
-<meta name="description" content="Edito vídeos para YouTube y redes, llevo Meritamen, un canal de historia, y hago mods de Minecraft.">
-<meta name="theme-color" content="#f4efe6">
+<title>Marie Peachx · Editora de vídeo y directora</title>
+<meta name="description" content="Edito y dirijo vídeo con DaVinci Resolve. Llevo Meritamen, un canal de historia, he dirigido el corto de terror ASH y hago mods de Minecraft.">
+<meta name="theme-color" content="#120d10">
 <link rel="canonical" href="https://mariepeachx.github.io/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Marie Peachx">
-<meta property="og:description" content="Vídeos, historia y mods de Minecraft.">
+<meta property="og:title" content="Marie Peachx · Editora de vídeo y directora">
+<meta property="og:description" content="Edición, dirección y contenido divulgativo. Mira ASH, mi corto de terror.">
 <meta property="og:url" content="https://mariepeachx.github.io/">
-<meta property="og:image" content="https://mariepeachx.github.io/assets/marie-portrait.jpg">
+<meta property="og:image" content="https://mariepeachx.github.io/assets/corto/corto-terror-portada.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="links/avatar.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..600,100&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=Nunito:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 :root{
  --paper:#f4efe6;--paper-2:#ebe4d8;--ink:#2a2622;--soft:#6f675e;--line:#d9d0c2;
- --rose:#d76f93;--peach:#d9957d;--plum:#24162a;--plum-2:#33203a;--lilac:#e9d6ee;
- --serif:'Fraunces',Georgia,serif;--sans:'Nunito',system-ui,sans-serif;
+ --rose:#d76f93;--rose-2:#e9a3bb;--plum:#24162a;--night:#120d10;
+ --serif:'Fraunces',Georgia,serif;--sans:'Nunito',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
 }
-h1,h2,h3,.name,.contact .big{font-variation-settings:"SOFT" 100,"WONK" 0;font-optical-sizing:auto}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans);overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans);overflow-x:hidden}
+h1,h2,h3{font-family:var(--serif);font-variation-settings:"SOFT" 100,"WONK" 0;font-weight:400}
 a{color:inherit}
-img{max-width:100%;display:block}
-.wrap{width:min(1080px,calc(100% - 32px));margin:0 auto}
+img,video{max-width:100%;display:block}
+.wrap{width:min(1120px,calc(100% - 40px));margin:0 auto}
 :focus-visible{outline:2px solid var(--rose);outline-offset:3px}
 .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 12px;z-index:99}.skip:focus{left:8px}
-.u{text-decoration:none;background:linear-gradient(var(--rose),var(--rose)) 0 100%/100% 1px no-repeat;padding-bottom:1px;transition:background-size .25s}
+.u{text-decoration:none;background:linear-gradient(var(--rose),var(--rose)) 0 100%/100% 1px no-repeat;padding-bottom:1px;transition:background-size .25s,color .25s}
 .u:hover{background-size:100% 100%;color:#fff}
-.label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:500}
+.label{font:400 .72rem var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
+.dark{background:var(--night);color:#efe6ea}
+.dark .label{color:#b8a5b0}
+
+/* grano de película */
+.grain{position:relative;isolation:isolate}
+.grain::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;opacity:.09;mix-blend-mode:overlay;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.grain > .wrap{position:relative;z-index:3}
 
 /* cabecera */
-.top{position:sticky;top:0;z-index:20;background:#f4efe6f2;backdrop-filter:blur(8px)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
-.name{font:1.45rem var(--serif);text-decoration:none;white-space:nowrap}
-nav{display:flex;gap:22px;align-items:center;font-size:.86rem}
-nav a{text-decoration:none;color:var(--soft)}nav a:hover{color:var(--ink)}
-.lang,.menu{font:500 .72rem var(--sans);letter-spacing:.08em;background:none;border:1px solid var(--line);color:var(--ink);padding:5px 9px;border-radius:20px;cursor:pointer}
+.top{position:fixed;top:0;left:0;right:0;z-index:30;transition:background .3s,box-shadow .3s,color .3s;color:#f4ecef}
+.top.solid{background:#f4efe6ee;backdrop-filter:blur(10px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.name{font:400 1.4rem var(--serif);font-variation-settings:"SOFT" 100;text-decoration:none;white-space:nowrap}
+.name b{color:var(--rose);font-weight:400}
+nav{display:flex;gap:24px;align-items:center;font-size:.86rem}
+nav a{text-decoration:none;opacity:.75;transition:opacity .2s}nav a:hover{opacity:1}
+.lang,.menu{font:400 .72rem var(--mono);letter-spacing:.08em;background:none;border:1px solid currentColor;color:inherit;padding:5px 10px;border-radius:20px;cursor:pointer;opacity:.85}
 .menu{display:none}
 
-/* inicio */
-.intro{display:grid;grid-template-columns:1.25fr .75fr;gap:64px;align-items:center;padding:72px 0 96px}
-.intro h1{font:400 clamp(2.3rem,5.2vw,4.1rem)/1.06 var(--serif);letter-spacing:-.01em;margin:0 0 28px}
-.intro h1 i{font-style:italic}
-.intro p{max-width:540px;color:#4b443d;font-size:1.04rem;margin:0 0 14px}
-.intro .more{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;font-size:.95rem}
-.intro .label{margin-bottom:18px}
-.portrait{margin:0;justify-self:end;width:min(340px,100%)}
-.portrait img{aspect-ratio:4/5;object-fit:cover;object-position:center 40%;width:100%;border-radius:4px}
-.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;padding:10px 22px;border-radius:2px;font-weight:500;transition:background .2s}
-.btn:hover{background:var(--rose)}
-.more{align-items:center}
-.services{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
-.services div{padding:22px 22px 8px 0}
-.services div+div{padding-left:22px;border-left:1px solid var(--line)}
-.services h3{font:500 1.02rem var(--sans);margin:0 0 8px}
-.services p{margin:0;color:var(--soft);font-size:.92rem}
+/* portada */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#120d10cc 0%,#120d1055 35%,#120d10aa 70%,#120d10 100%),radial-gradient(ellipse at 20% 80%,#24162acc,transparent 60%)}
+.hero .wrap{padding:140px 0 56px}
+.hero .label{color:#e9c9d6;display:flex;gap:14px;align-items:center}
+.rec{width:9px;height:9px;border-radius:50%;background:#e2455f;box-shadow:0 0 0 4px #e2455f33;animation:blink 1.6s infinite;flex:none}
+@keyframes blink{50%{opacity:.25}}
+.hero h1{font-size:clamp(3.6rem,13vw,11rem);line-height:.86;letter-spacing:-.03em;margin:22px 0 26px;color:#fff}
+.hero h1 i{font-style:italic;color:var(--rose-2);font-weight:300}
+.hero p.lead{max-width:560px;font-size:clamp(1.05rem,1.6vw,1.25rem);color:#e8dde2;margin:0 0 34px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--rose);color:#fff;text-decoration:none;padding:13px 26px;border-radius:40px;font-weight:700;font-size:.95rem;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:#c75c82}
+.btn.ghost{background:transparent;border:1px solid #ffffff66}
+.btn.ghost:hover{background:#ffffff14}
+.tc{position:absolute;right:max(20px,calc((100% - 1120px)/2));top:96px;z-index:3;font:400 .75rem var(--mono);color:#ffffffaa;letter-spacing:.1em;text-align:right}
+.strip{border-top:1px solid #ffffff22;margin-top:56px;padding-top:18px;display:flex;flex-wrap:wrap;gap:8px 28px;font:400 .74rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#cdb9c3}
+.strip span::before{content:"✦ ";color:var(--rose)}
 
 /* secciones */
-section{padding:84px 0}
-.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:34px;border-top:1px solid var(--ink);padding-top:14px}
-.sec-head h2{font:400 clamp(2rem,4vw,2.9rem)/1 var(--serif);margin:0}
-.sec-head p{margin:0;color:var(--soft);max-width:440px;font-size:.95rem}
+section{padding:110px 0}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:10px 28px;align-items:end;margin-bottom:46px}
+.sec-head .num{font:400 .8rem var(--mono);color:var(--rose);letter-spacing:.1em;grid-row:span 2;align-self:start;padding-top:14px}
+.sec-head h2{font-size:clamp(2.3rem,5vw,3.8rem);line-height:1;margin:0;letter-spacing:-.01em}
+.sec-head p{margin:0;color:var(--soft);max-width:520px}
 
+/* sobre mí */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:center}
+.frame{position:relative;margin:0 16px 0 16px}
+.frame img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 40%;border-radius:3px;position:relative;z-index:1}
+.frame::before{content:"";position:absolute;inset:-16px 16px 16px -16px;border:1px solid var(--rose);border-radius:3px}
+.frame figcaption{position:absolute;bottom:-14px;right:-14px;z-index:2;background:var(--ink);color:var(--paper);font:400 .7rem var(--mono);letter-spacing:.12em;padding:8px 12px;text-transform:uppercase}
+.about h2{font-size:clamp(2rem,3.6vw,3rem);line-height:1.08;margin:12px 0 24px}
+.about h2 i{color:var(--rose)}
+.about p{color:#4b443d;margin:0 0 16px;font-size:1.04rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:42px;border-top:1px solid var(--ink)}
+.stats div{padding:18px 14px 0 0}
+.stats b{display:block;font:300 clamp(1.8rem,3vw,2.5rem)/1 var(--serif);font-variation-settings:"SOFT" 100}
+.stats span{display:block;font-size:.8rem;color:var(--soft);margin-top:8px;line-height:1.4}
+
+/* ASH */
+.ash{overflow:hidden}
+.ash .title{font-size:clamp(6rem,22vw,17rem);line-height:.8;letter-spacing:-.04em;margin:8px 0 0;color:#fff;font-weight:300}
+.ash .title-row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:40px}
+.ash .tag{font:400 .78rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#d8b4c4;text-align:right;line-height:1.8}
+.player{border-radius:4px;overflow:hidden;background:#000;box-shadow:0 40px 80px -40px #000}
+.player video{width:100%;height:auto;aspect-ratio:16/9}
+.ash-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;margin-top:52px}
+.ash-grid p{color:#d8cbd1;margin:0 0 14px;font-size:1.04rem}
+.credits{list-style:none;margin:0;padding:0;font-size:.92rem}
+.credits li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #ffffff1c}
+.credits li span:first-child{font:400 .74rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#a8939e;padding-top:3px}
+.credits li span:last-child{color:#fff;text-align:right}
+
+/* servicios */
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#fffdf9;border-radius:6px;padding:28px 24px 26px;transition:transform .3s,box-shadow .3s;border:1px solid #e6ddd0}
+.card:hover{transform:translateY(-6px);box-shadow:0 24px 40px -26px #5a3a4a55}
+.card .n{font:400 .78rem var(--mono);color:var(--rose);letter-spacing:.1em}
+.card h3{font-size:1.5rem;line-height:1.1;margin:44px 0 12px}
+.card p{margin:0;color:var(--soft);font-size:.93rem}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.chip{font:400 .78rem var(--mono);border:1px solid var(--line);border-radius:30px;padding:7px 14px;color:#4b443d;background:#fffdf966}
 
 /* mods */
 .mods{background:var(--plum);color:#f1e6f2}
-.mods .sec-head{border-color:#f1e6f2}
-.mods .sec-head p,.mods .label{color:#bda9c2}
-.mod{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start;padding:10px 0 60px}
-.mod + .mod{border-top:1px solid #ffffff1f;padding-top:56px}
+.mods .sec-head p{color:#bda9c2}
+.mod{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center;padding:10px 0 70px}
+.mod + .mod{border-top:1px solid #ffffff1f;padding-top:70px}
 .mod.flip{grid-template-columns:.85fr 1.15fr}
 .mod.flip .shot{order:2}
 .shot{margin:0;border-radius:6px;overflow:hidden;background:#110b14}
-.shot img{width:100%;height:auto}
-.mod h3{font:400 clamp(2rem,3.6vw,2.8rem)/1 var(--serif);margin:10px 0 16px;color:#fff}
+.shot img{width:100%;height:auto;transition:transform .8s}
+.shot:hover img{transform:scale(1.03)}
+.mod .label{color:#bda9c2}
+.mod h3{font-size:clamp(2rem,3.6vw,3rem);line-height:1;margin:10px 0 18px;color:#fff}
 .mod p{margin:0 0 14px;color:#dccfe0}
-.mod ul{margin:18px 0 0;padding:0;list-style:none;font-size:.9rem;color:#cdbbd2}
-.mod li{padding:8px 0;border-top:1px solid #ffffff1a}
-.mod li b{font-weight:500;color:#fff}
-.mods .u{background-image:linear-gradient(var(--rose),var(--rose))}
-.cf{margin-top:8px;font-size:.98rem}
+.mod ul{margin:20px 0 0;padding:0;list-style:none;font-size:.9rem;color:#cdbbd2}
+.mod li{padding:9px 0;border-top:1px solid #ffffff1a}
+.mod li b{font-weight:600;color:#fff}
+.cf{margin:0}
 
 /* viajes */
-.travel{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start}
-.travel .shot{margin:0}
-.travel .shot img{width:100%;height:auto;border-radius:6px}
-.travel figcaption{font-size:.82rem;color:var(--soft);margin-top:8px}
+.travel{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.gallery{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:200px 200px;gap:10px}
+.gallery figure{margin:0;overflow:hidden;border-radius:4px}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.gallery figure:hover img{transform:scale(1.04)}
+.gallery .big{grid-row:span 2}
+.gcap{grid-column:1/-1;font-size:.82rem;color:var(--soft);margin:2px 0 0}
 .travel p{margin:0 0 14px;color:#4b443d}
-.next{background:var(--white,#fffdf9);border-radius:8px;padding:20px 22px;margin:22px 0}
-.next .tag{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);font-weight:700}
-.next h3{font:400 1.7rem/1.1 var(--serif);font-variation-settings:"SOFT" 100;margin:8px 0 8px}
+.next{background:#fffdf9;border:1px solid #e6ddd0;border-radius:8px;padding:22px 24px;margin:24px 0}
+.next .tag{font:400 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--rose)}
+.next h3{font-size:1.7rem;line-height:1.1;margin:8px 0}
 .next p{margin:0;font-size:.95rem}
 .links-inline{display:flex;gap:22px;flex-wrap:wrap}
-.places{font-size:.95rem;line-height:1.8}
-.places .label{display:block;margin-bottom:2px}
-@media(max-width:860px){.travel{grid-template-columns:1fr;gap:26px}}
+.places{font-size:.95rem;line-height:1.9}
+.places .label{display:block;margin-bottom:4px}
 
-/* otros proyectos */
-.list{border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:220px 1fr 160px;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
-.row h3{font:400 1.6rem/1.1 var(--serif);margin:0}
-.row p{margin:0;color:#4b443d;font-size:.95rem}
+/* listas */
+.list{border-top:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:240px 1fr 170px;gap:24px;padding:24px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:background .25s,padding .25s}
+.row:hover{background:#fffdf9;padding-left:14px;padding-right:14px}
+.row h3{font-size:1.6rem;line-height:1.1;margin:0}
+.row p{margin:0;color:#4b443d;font-size:.96rem}
 .row .go{justify-self:end;font-size:.88rem;text-align:right}
-.row .note{color:var(--soft);font-size:.84rem}
+.row .note{font:400 .74rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
 .row.sub h3{font-size:1.2rem;padding-left:18px;border-left:2px solid var(--rose)}
-
-/* trabajo */
+.tight{padding-top:20px}
 
 /* contacto */
-.contact{background:var(--paper-2);padding-bottom:40px}
-.contact .big{font:400 clamp(1.3rem,2.6vw,1.9rem)/1.2 var(--serif);margin:0 0 28px}
-.contact .big a{text-decoration:none;border-bottom:1px solid var(--rose)}
-.contact .big a:hover{color:var(--rose)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-.linkcard{display:flex;align-items:center;gap:16px;background:#fff;border-radius:14px;padding:14px 18px 14px 14px;text-decoration:none;box-shadow:0 10px 30px -18px #3a2a2066;transition:transform .2s;max-width:420px}
-.linkcard:hover{transform:translateY(-2px) rotate(-.5deg)}
+.contact{padding-bottom:60px}
+.contact h2{font-size:clamp(2.6rem,7vw,5.6rem);line-height:.95;margin:14px 0 30px;color:#fff;letter-spacing:-.02em}
+.contact h2 i{color:var(--rose-2)}
+.mail{display:inline-block;font:300 clamp(1.3rem,3vw,2.2rem) var(--serif);font-variation-settings:"SOFT" 100;text-decoration:none;border-bottom:1px solid var(--rose);color:#fff;word-break:break-all}
+.mail:hover{color:var(--rose-2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;margin-top:54px}
+.linkcard{display:flex;align-items:center;gap:16px;background:#ffffff0d;border:1px solid #ffffff1f;border-radius:14px;padding:14px 18px 14px 14px;text-decoration:none;transition:transform .2s,background .2s;max-width:440px}
+.linkcard:hover{transform:translateY(-2px);background:#ffffff18}
 .linkcard img{width:52px;height:52px;border-radius:50%;object-fit:cover}
-.linkcard b{display:block;font-weight:500}.linkcard span{font-size:.85rem;color:var(--soft)}
-.linkcard .arr{margin-left:auto;font-size:1.2rem;color:var(--rose)}
+.linkcard b{display:block;font-weight:600;color:#fff}.linkcard span{font-size:.85rem;color:#b9a8b1}
+.linkcard .arr{margin-left:auto;font-size:1.2rem;color:var(--rose-2)}
 .socials{list-style:none;margin:0;padding:0;font-size:.95rem}
-.socials li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
-.socials li span{color:var(--soft)}
-footer{background:var(--paper-2);font-size:.8rem;color:var(--soft)}
-footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.socials li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #ffffff1c}
+.socials li span{color:#a8939e;font:400 .8rem var(--mono)}
+footer{background:var(--night);color:#8f7c86;font:400 .74rem var(--mono);letter-spacing:.08em}
+footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid #ffffff14}
 
-@media(max-width:860px){
- .intro{grid-template-columns:1fr;gap:56px;padding:44px 0 70px}
- .portrait{justify-self:start;width:min(300px,80%)}
+/* aparición al hacer scroll (solo si hay JS) */
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.js .reveal.in{opacity:1;transform:none}
+
+@media(max-width:960px){
+ .about{grid-template-columns:1fr;gap:56px}.frame{max-width:340px}
  .services{grid-template-columns:1fr 1fr}
- .services div:nth-child(3){padding-left:0;border-left:0}
- .mod,.mod.flip{grid-template-columns:1fr;gap:26px}.mod.flip .shot{order:0}
+ .ash-grid,.travel,.contact-grid{grid-template-columns:1fr;gap:36px}
+ .mod,.mod.flip{grid-template-columns:1fr;gap:28px}.mod.flip .shot{order:0}
  .row{grid-template-columns:1fr;gap:6px}.row .go{justify-self:start;text-align:left}
- .contact-grid{grid-template-columns:1fr;gap:36px}
- section{padding:64px 0}
+ section{padding:80px 0}
+ .stats{grid-template-columns:1fr 1fr}.stats div:nth-child(n+3){padding-top:22px}
+ .ash .tag{text-align:left}
 }
-@media(max-width:720px){
+@media(max-width:760px){
  .menu{display:block}
- nav{display:none;position:absolute;top:62px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:flex-start;gap:0;padding:4px 16px 16px;border-bottom:1px solid var(--line);font-size:1rem}
+ nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--paper);color:var(--ink);flex-direction:column;align-items:flex-start;gap:0;padding:4px 20px 18px;border-bottom:1px solid var(--line);font-size:1rem}
  nav.open{display:flex}
- nav a{width:100%;padding:10px 0;border-bottom:1px solid var(--line)}
+ nav a{width:100%;padding:11px 0;border-bottom:1px solid var(--line);opacity:1}
  .lang{margin-top:12px}
+ .tc{display:none}
+ .sec-head{grid-template-columns:1fr}.sec-head .num{grid-row:auto;padding:0}
+ .gallery{grid-template-rows:150px 150px}
 }
-@media(max-width:520px){.services{grid-template-columns:1fr}.services div,.services div+div{padding:18px 0 4px;border-left:0}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:520px){.services{grid-template-columns:1fr}.card h3{margin-top:26px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.js .reveal{opacity:1;transform:none}}
 </style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
-<header class="top"><div class="wrap">
- <a class="name" href="#main">Marie Peachx</a>
+<header class="top" id="top"><div class="wrap">
+ <a class="name" href="#main">Marie <b>Peachx</b></a>
  <nav id="nav" aria-label="Principal">
+  <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+  <a href="#corto">ASH</a>
   <a href="#servicios" data-i18n="nav.services">Servicios</a>
   <a href="#mods">Mods</a>
-  <a href="#corto" data-i18n="nav.short">Corto</a>
   <a href="#viajes" data-i18n="nav.travel">Viajes</a>
   <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
   <a href="/blog/" data-i18n="nav.blog">Blog</a>
-  <a href="/links/" data-i18n="nav.links">Enlaces</a>
   <a href="#contacto" data-i18n="nav.contact">Contacto</a>
   <button class="lang" id="langSwitch" type="button" aria-label="Switch language">EN</button>
  </nav>
@@ -169,36 +230,79 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
 </div></header>
 
 <main id="main">
-<div class="wrap intro">
- <div>
-  <div class="label" data-i18n="intro.l">Editora de vídeo · Creadora de contenido</div>
-  <h1 data-i18n="intro.h">Edición de vídeo, contenido divulgativo y desarrollo de mods para Minecraft.</h1>
-  <p data-i18n="intro.p1">Edito vídeos para YouTube y redes sociales con DaVinci Resolve: montaje, subtítulos y diseño de sonido. Dirijo Meritamen, un canal de divulgación histórica, y desarrollo modpacks narrativos para Minecraft.</p>
-  <p data-i18n="intro.p2">Vengo del ámbito sanitario, con dos ciclos de grado superior. De ahí viene mi forma de trabajar: documentación rigurosa, método y atención al detalle.</p>
-  <div class="more">
-   <a class="btn" href="#contacto" data-i18n="intro.c1">Contactar</a>
-   <a class="u" href="#servicios" data-i18n="intro.c2">Ver servicios</a>
+<div class="hero dark grain">
+ <img class="poster" src="assets/corto/reel-fondo.jpg" alt="">
+ <video id="reel" autoplay muted loop playsinline preload="metadata" poster="assets/corto/reel-fondo.jpg" aria-hidden="true"><source src="assets/corto/reel-fondo.mp4" type="video/mp4"></video>
+ <div class="tc" aria-hidden="true">REEL · ASH<br><span id="tc">00:00:00:00</span></div>
+ <div class="wrap">
+  <div class="label"><span class="rec" aria-hidden="true"></span><span data-i18n="h.l">Editora de vídeo · Directora · Creadora de contenido</span></div>
+  <h1>Marie<br><i>Peachx</i></h1>
+  <p class="lead" data-i18n="h.p">Monto vídeos con DaVinci Resolve, del material en bruto a la exportación final. Hago divulgación histórica y he dirigido ASH, un corto de terror.</p>
+  <div class="cta">
+   <a class="btn" href="#corto" data-i18n="h.c1">▶ Ver ASH, mi corto</a>
+   <a class="btn ghost" href="#contacto" data-i18n="h.c2">Contactar</a>
   </div>
+  <div class="strip"><span>DaVinci Resolve</span><span data-i18n="h.s1">Montaje</span><span data-i18n="h.s2">Color</span><span>Fusion</span><span>Fairlight</span><span data-i18n="h.s3">Guion</span><span data-i18n="h.s4">Dirección</span></div>
  </div>
- <figure class="portrait">
-  <img src="assets/marie-portrait.jpg" alt="Marie Peachx" width="320" height="400">
- </figure>
 </div>
 
-<section id="servicios"><div class="wrap">
- <div class="sec-head"><h2 data-i18n="w.h">Servicios</h2><p data-i18n="w.p1">Para canales de YouTube, marcas y eventos. Trabajo en español y en inglés.</p></div>
- <div class="services">
-  <div><h3 data-i18n="w.t1">Formato vertical</h3><p data-i18n="w.d1">Shorts, Reels y TikTok con subtítulos, ritmo y música adaptados a cada plataforma.</p></div>
-  <div><h3 data-i18n="w.t2">Vídeo para YouTube</h3><p data-i18n="w.d2">Montaje de vídeos largos en DaVinci Resolve, del material en bruto a la exportación final.</p></div>
-  <div><h3 data-i18n="w.t3">Guion y documentación</h3><p data-i18n="w.d3">Investigación y estructura del contenido antes de grabar, especialmente en historia y ciencia.</p></div>
-  <div><h3 data-i18n="w.t4">Eventos</h3><p data-i18n="w.d4">Piezas para redes sociales de eventos, con experiencia en el sector de los videojuegos.</p></div>
+<section id="sobre-mi"><div class="wrap about">
+ <figure class="frame reveal"><img src="assets/marie-portrait.jpg" alt="Marie Peachx" width="400" height="500"><figcaption>Marie Peachx</figcaption></figure>
+ <div class="reveal">
+  <div class="label" data-i18n="a.l">01 · Sobre mí</div>
+  <h2 data-i18n="a.h">Edición, divulgación y <i>cine de terror</i>.</h2>
+  <p data-i18n="a.p1">Edito vídeos para YouTube y redes sociales con DaVinci Resolve: montaje, subtítulos y diseño de sonido. Dirijo Meritamen, un canal de divulgación histórica, y desarrollo modpacks narrativos para Minecraft.</p>
+  <p data-i18n="a.p2">Vengo del ámbito sanitario, con dos ciclos de grado superior. De ahí viene mi forma de trabajar: documentación rigurosa, método y atención al detalle.</p>
+  <div class="stats">
+   <div><b>+20.000</b><span data-i18n="s1">visualizaciones en Meritamen</span></div>
+   <div><b>13.000</b><span data-i18n="s2">suscriptores en el canal que gestiono</span></div>
+   <div><b>2</b><span data-i18n="s3">cursos oficiales de Blackmagic Design</span></div>
+   <div><b>2</b><span data-i18n="s4">modpacks de aventura para Minecraft</span></div>
+  </div>
  </div>
 </div></section>
 
-<section class="mods" id="mods"><div class="wrap">
- <div class="sec-head"><h2 data-i18n="m.h">Desarrollo de mods</h2><p data-i18n="m.p">Modpacks de aventura para Minecraft Java. En ambos me he encargado de la narrativa, los textos, las texturas y la programación de los datapacks.</p></div>
+<section class="dark ash grain" id="corto"><div class="wrap">
+ <div class="title-row reveal">
+  <div><div class="label" data-i18n="k.l">02 · Cortometraje de terror</div><h2 class="title">ASH</h2></div>
+  <div class="tag" data-i18n="k.tag">Dirigido y editado<br>por Marie Peachx</div>
+ </div>
+ <div class="player reveal">
+  <video controls preload="metadata" playsinline poster="assets/corto/corto-terror-portada.jpg" aria-label="ASH, cortometraje de terror">
+   <source src="assets/corto/corto-terror.mp4?v=3" type="video/mp4">
+  </video>
+ </div>
+ <div class="ash-grid reveal">
+  <div>
+   <p data-i18n="k.p1">ASH es un cortometraje de terror de dos minutos y medio, rodado en un parque y en una sala de ordenadores.</p>
+   <p data-i18n="k.p2">Lo dirigí y lo monté entero en DaVinci Resolve: ritmo, efectos de glitch y sonido. También colaboré en el guion, actué y me encargué del maquillaje.</p>
+  </div>
+  <ul class="credits">
+   <li><span data-i18n="cr1">Dirección</span><span>Marie Peachx</span></li>
+   <li><span data-i18n="cr2">Montaje</span><span>Marie Peachx</span></li>
+   <li><span data-i18n="cr3">Guion</span><span data-i18n="cr3v">Colaboración</span></li>
+   <li><span data-i18n="cr4">Interpretación</span><span>Marie Peachx</span></li>
+   <li><span data-i18n="cr5">Maquillaje</span><span>Marie Peachx</span></li>
+   <li><span data-i18n="cr6">Duración</span><span>2:36</span></li>
+  </ul>
+ </div>
+</div></section>
 
- <article class="mod">
+<section id="servicios"><div class="wrap">
+ <div class="sec-head reveal"><span class="num">03</span><h2 data-i18n="w.h">Servicios</h2><p data-i18n="w.p1">Para canales de YouTube, marcas y eventos. Trabajo en español y en inglés.</p></div>
+ <div class="services">
+  <div class="card reveal"><span class="n">01</span><h3 data-i18n="w.t1">Formato vertical</h3><p data-i18n="w.d1">Shorts, Reels y TikTok con subtítulos, ritmo y música adaptados a cada plataforma.</p></div>
+  <div class="card reveal"><span class="n">02</span><h3 data-i18n="w.t2">Vídeo para YouTube</h3><p data-i18n="w.d2">Montaje de vídeos largos en DaVinci Resolve, del material en bruto a la exportación final.</p></div>
+  <div class="card reveal"><span class="n">03</span><h3 data-i18n="w.t3">Guion y documentación</h3><p data-i18n="w.d3">Investigación y estructura del contenido antes de grabar, especialmente en historia y ciencia.</p></div>
+  <div class="card reveal"><span class="n">04</span><h3 data-i18n="w.t4">Eventos</h3><p data-i18n="w.d4">Piezas para redes sociales de eventos, con experiencia en el sector de los videojuegos.</p></div>
+ </div>
+ <div class="tools reveal"><span class="chip">DaVinci Resolve 20</span><span class="chip" data-i18n="t1">Montaje y edición</span><span class="chip" data-i18n="t2">Etalonaje</span><span class="chip">Fusion</span><span class="chip">Fairlight</span><span class="chip" data-i18n="t3">Subtítulos</span><span class="chip" data-i18n="t4">Diseño de sonido</span><span class="chip" data-i18n="t5">Herramientas de IA</span></div>
+</div></section>
+
+<section class="mods" id="mods"><div class="wrap">
+ <div class="sec-head reveal"><span class="num">04</span><h2 data-i18n="m.h">Desarrollo de mods</h2><p data-i18n="m.p">Modpacks de aventura para Minecraft Java. En ambos me he encargado de la narrativa, los textos, las texturas y la programación de los datapacks.</p></div>
+
+ <article class="mod reveal">
   <figure class="shot"><img src="assets/mods/peachxsy-castillo.jpg" alt="El castillo rosa de Peachxsy Alley al anochecer, rodeado de cerezos" width="1400" height="788" loading="lazy"></figure>
   <div>
    <div class="label">Forge 1.20.1</div>
@@ -212,7 +316,7 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
   </div>
  </article>
 
- <article class="mod flip">
+ <article class="mod flip reveal">
   <figure class="shot"><img src="assets/mods/space-legacy-modelos.jpg" alt="Modelos 3D de naves y rovers lunares hechos para Space Legacy" width="1400" height="700" loading="lazy"></figure>
   <div>
    <div class="label">Java 1.21.1 · Ad Astra</div>
@@ -226,14 +330,19 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
   </div>
  </article>
 
- <p class="cf"><a class="u" href="https://www.curseforge.com/members/mariepeachx/projects" target="_blank" rel="noopener noreferrer" data-i18n="m.cf">Mis mods en CurseForge ↗</a></p>
+ <p class="cf reveal"><a class="u" href="https://www.curseforge.com/members/mariepeachx/projects" target="_blank" rel="noopener noreferrer" data-i18n="m.cf">Mis mods en CurseForge ↗</a></p>
 </div></section>
 
 <section id="viajes"><div class="wrap">
- <div class="sec-head"><h2 data-i18n="t.h">Viajes</h2><p data-i18n="t.p">La curiosidad que me lleva a documentarme para cada vídeo es la misma que me hace viajar.</p></div>
+ <div class="sec-head reveal"><span class="num">05</span><h2 data-i18n="t.h">Viajes</h2><p data-i18n="t.p">La curiosidad que me lleva a documentarme para cada vídeo es la misma que me hace viajar.</p></div>
  <div class="travel">
-  <figure class="shot"><img src="assets/viajes/viena/portada.jpg" alt="Luces de Navidad sobre el Graben de Viena, con la catedral de San Esteban al fondo" width="1600" height="900" loading="lazy"><figcaption data-i18n="t.cap">Viena, noviembre de 2025. Fotograma de mi GoPro.</figcaption></figure>
-  <div>
+  <div class="gallery reveal">
+   <figure class="big"><img src="assets/viajes/viena/portada.jpg" alt="Luces de Navidad sobre el Graben de Viena, con la catedral de San Esteban al fondo" loading="lazy"></figure>
+   <figure><img src="assets/viajes/viena/opera.jpg" alt="La Ópera Estatal de Viena" loading="lazy"></figure>
+   <figure><img src="assets/viajes/viena/cafe-central.jpg" alt="El Café Central de Viena" loading="lazy"></figure>
+   <p class="gcap" data-i18n="t.cap">Viena, noviembre de 2025. Fotogramas de mi GoPro.</p>
+  </div>
+  <div class="reveal">
    <p data-i18n="t.p1">Siempre que viajo vuelvo con horas de material grabado. Me interesa entender los sitios: su historia, por qué son como son y qué los hace distintos.</p>
    <p data-i18n="t.p2">Lo cuento en mi blog de viajes, junto a una sección de curiosidades sobre lugares de todo el mundo. También dejo reseñas como Local Guide en Google Maps.</p>
    <p class="places"><span class="label" data-i18n="t.pl">He estado en</span> <span data-i18n="t.pll">Italia · París · Estambul · islas griegas · Viena · Budapest · Bratislava · Brno · Albania · Tailandia · Madrid · Granada · Santiago de Compostela</span></p>
@@ -247,29 +356,21 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
  </div>
 </div></section>
 
-<section class="mods" id="corto"><div class="wrap">
- <div class="sec-head"><h2 data-i18n="k.h">ASH</h2><p data-i18n="k.p">Cortometraje de terror que dirigí y edité en DaVinci Resolve. También colaboré en el guion, la interpretación y el maquillaje.</p></div>
- <figure class="shot" style="margin:0">
-  <video controls preload="metadata" playsinline poster="assets/corto/corto-terror-portada.jpg" style="width:100%;height:auto;display:block" aria-label="ASH, cortometraje de terror">
-   <source src="assets/corto/corto-terror.mp4?v=3" type="video/mp4">
-  </video>
- </figure>
-</div></section>
-
-<section id="proyectos"><div class="wrap">
- <div class="sec-head"><h2 data-i18n="p.h">Experiencia y proyectos</h2></div>
- <div class="list">
+<section id="proyectos" class="tight"><div class="wrap">
+ <div class="sec-head reveal"><span class="num">06</span><h2 data-i18n="p.h">Experiencia y proyectos</h2></div>
+ <div class="list reveal">
   <div class="row"><h3>Meritamen</h3><p data-i18n="p0">Canal de divulgación histórica en formato corto. Guion, documentación y edición propios; más de 20.000 visualizaciones.</p><a class="go u" href="https://www.youtube.com/@Meritamenhistoria" target="_blank" rel="noopener noreferrer">YouTube ↗</a></div>
+  <div class="row"><h3>ASH</h3><p data-i18n="p5">Cortometraje de terror: dirección y edición en DaVinci Resolve, colaboración en el guion, interpretación y maquillaje.</p><a class="go u" href="#corto" data-i18n="p5.l">Ver el corto ↑</a></div>
+  <div class="row"><h3 data-i18n="p6.t">Gestión de canal</h3><p data-i18n="p6">Gestión del contenido de un canal de Minecraft de unos 13.000 suscriptores para otro creador.</p><span class="go note">YouTube</span></div>
   <div class="row"><h3>Marie Peachx</h3><p data-i18n="p1">Canal personal dedicado a nuevos formatos y emisiones en directo.</p><a class="go u" href="https://www.youtube.com/channel/UCHzE-9M0bbHYNCtyb7x10KA" target="_blank" rel="noopener noreferrer">YouTube ↗</a></div>
   <div class="row"><h3 data-i18n="p3.t">Eventos de videojuegos</h3><p data-i18n="p3">Organización y coordinación de eventos de videojuegos y de comunidades online.</p><span class="go note" data-i18n="p3.n">Organización</span></div>
   <div class="row"><h3>Leadingirls</h3><p data-i18n="p4">Colaboración en una propuesta para acercar las profesiones digitales a estudiantes, con actividades y entrevistas sobre la industria del videojuego.</p><span class="go note" data-i18n="p4.n">Educación</span></div>
-  <div class="row"><h3 data-i18n="p5.t">Cortometraje</h3><p data-i18n="p5">ASH, cortometraje de terror: dirección y edición en DaVinci Resolve, colaboración en el guion, interpretación y maquillaje.</p><a class="go u" href="#corto" data-i18n="p5.l">Ver el corto ↓</a></div>
  </div>
 </div></section>
 
-<section id="formacion"><div class="wrap">
- <div class="sec-head"><h2 data-i18n="e.h">Formación</h2></div>
- <div class="list">
+<section id="formacion" class="tight"><div class="wrap">
+ <div class="sec-head reveal"><span class="num">07</span><h2 data-i18n="e.h">Formación</h2></div>
+ <div class="list reveal">
   <div class="row"><h3 data-i18n="e3.t">Edición de vídeo</h3><p data-i18n="e3">Formación oficial de Blackmagic Design y práctica continuada en producción propia con DaVinci Resolve.</p><span class="go note" data-i18n="e3.n">Actualidad</span></div>
   <div class="row sub"><h3 data-i18n="e4.t">Guía de introducción a DaVinci Resolve 20</h3><p data-i18n="e4">Módulos Montaje y Edición, etalonaje, efectos visuales con Fusion y procesamiento de audio con Fairlight.</p><span class="go note">Blackmagic Design</span></div>
   <div class="row sub"><h3 data-i18n="e5.t">Guía de edición con DaVinci Resolve 20</h3><p data-i18n="e5">Montaje de entrevistas, escenas de ficción, documental y videoclip; transcripción automática, efectos de velocidad variable, mezcla de audio y entrega para plataformas digitales y televisión.</p><span class="go note">Blackmagic Design</span></div>
@@ -278,10 +379,11 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
  </div>
 </div></section>
 
-<section class="contact" id="contacto"><div class="wrap">
- <div class="sec-head"><h2 data-i18n="c.h">Contacto</h2></div>
- <p class="big"><a href="mailto:mariepeachx06@gmail.com?subject=Proyecto%20de%20v%C3%ADdeo">mariepeachx06@gmail.com</a></p>
- <div class="contact-grid">
+<section class="dark contact grain" id="contacto"><div class="wrap">
+ <div class="label reveal" data-i18n="c.l">08 · Contacto</div>
+ <h2 class="reveal" data-i18n="c.h">¿Hacemos algo <i>juntos</i>?</h2>
+ <a class="mail reveal" href="mailto:mariepeachx06@gmail.com?subject=Proyecto%20de%20v%C3%ADdeo">mariepeachx06@gmail.com</a>
+ <div class="contact-grid reveal">
   <div>
    <a class="linkcard" href="/links/">
     <img src="links/avatar.jpg" alt="" width="52" height="52">
@@ -307,51 +409,58 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
 (function(){
 const EN={
  'skip':'Skip to content','menu':'Menu',
- 't.h':'Travel','t.p':'The curiosity that makes me research every video is the same one that makes me travel.',
- 't.cap':'Vienna, November 2025. A frame from my GoPro.',
- 't.p1':'Whenever I travel I come back with hours of footage. I want to understand places: their history, why they are the way they are and what makes them different.',
- 't.p2':'I write about it on my travel blog, alongside a section of curiosities about places around the world. I also leave reviews as a Google Maps Local Guide.',
- 't.tag':'Next project · In progress','t.nt':'Travel videos',
- 't.np':'A series of videos edited from my travel footage, with the same attention to each place’s history that I put into Meritamen.',
- 't.pl':'Places I’ve been','t.pll':'Italy · Paris · Istanbul · Greek islands · Vienna · Budapest · Bratislava · Brno · Albania · Thailand · Madrid · Granada · Santiago de Compostela',
- 't.l1':'Read the blog ↗','t.l2':'Google Maps reviews ↗','nav.travel':'Travel',
- 'nav.services':'Services','nav.projects':'Projects','nav.blog':'Blog','nav.links':'Links','nav.contact':'Contact',
- 'intro.l':'Video editor · Content creator',
- 'intro.h':'Video editing, educational content and Minecraft mod development.',
- 'intro.p1':'I edit videos for YouTube and social media in DaVinci Resolve: editing, captions and sound design. I run Meritamen, a history channel, and develop story-driven Minecraft modpacks.',
- 'intro.p2':'I come from healthcare, with two higher vocational qualifications. That shapes how I work: thorough research, method and attention to detail.',
- 'intro.c1':'Get in touch','intro.c2':'See services',
+ 'nav.about':'About','nav.services':'Services','nav.travel':'Travel','nav.projects':'Projects','nav.blog':'Blog','nav.contact':'Contact',
+ 'h.l':'Video editor · Director · Content creator',
+ 'h.p':'I edit videos in DaVinci Resolve, from raw footage to final export. I make history content and I directed ASH, a horror short film.',
+ 'h.c1':'▶ Watch ASH, my short film','h.c2':'Get in touch',
+ 'h.s1':'Editing','h.s2':'Colour','h.s3':'Script','h.s4':'Directing',
+ 'a.l':'01 · About me','a.h':'Editing, educational content and <i>horror film</i>.',
+ 'a.p1':'I edit videos for YouTube and social media in DaVinci Resolve: editing, captions and sound design. I run Meritamen, a history channel, and develop story-driven Minecraft modpacks.',
+ 'a.p2':'I come from healthcare, with two higher vocational qualifications. That shapes how I work: thorough research, method and attention to detail.',
+ 's1':'views on Meritamen','s2':'subscribers on the channel I manage','s3':'official Blackmagic Design courses','s4':'Minecraft adventure modpacks',
+ 'k.l':'02 · Horror short film','k.tag':'Directed and edited<br>by Marie Peachx',
+ 'k.p1':'ASH is a two-and-a-half-minute horror short film, shot in a park and in a computer room.',
+ 'k.p2':'I directed it and edited it entirely in DaVinci Resolve: pacing, glitch effects and sound. I also worked on the script, acted in it and did the makeup.',
+ 'cr1':'Director','cr2':'Editing','cr3':'Script','cr3v':'Collaboration','cr4':'Cast','cr5':'Makeup','cr6':'Running time',
  'w.h':'Services','w.p1':'For YouTube channels, brands and events. I work in Spanish and English.',
  'w.t1':'Vertical video','w.d1':'Shorts, Reels and TikTok with captions, pacing and music tailored to each platform.',
  'w.t2':'YouTube video','w.d2':'Long-form editing in DaVinci Resolve, from raw footage to final export.',
  'w.t3':'Script and research','w.d3':'Researching and structuring content before filming, especially history and science.',
  'w.t4':'Events','w.d4':'Social media pieces for events, with experience in the video game industry.',
+ 't1':'Editing','t2':'Colour grading','t3':'Captions','t4':'Sound design','t5':'AI tools',
  'm.h':'Mod development','m.p':'Adventure modpacks for Minecraft Java. On both I handled the narrative, writing, textures and datapack programming.',
  'm1.p1':'A boss adventure built across ten dimensions, each with its own arena, intro story and multi-phase fight. It integrates bosses from Cataclysm, Mowzie’s Mobs, Bosses of Mass Destruction, Aquamirae and Iron’s Spells, renamed and adapted to the story.',
  'm1.l1':'<b>10 dimensions</b> with their own arenas and atmosphere','m1.l2':'<b>10 bosses</b> with intro cutscene, phases and music','m1.l3':'<b>Original content</b>: items, textures, quest book and title screen',
  'm2.p1':'An educational adventure about lunar exploration. The player travels to the Moon to recover twelve objects from real missions, such as Apollo 11’s Eagle, Lunokhod 1 or Chang’e 4, guided by a mission-control narrator.',
  'm2.l1':'<b>12 missions</b> based on real space missions','m2.l2':'<b>17 3D models</b> of spacecraft and vehicles, mostly to real scale','m2.l3':'<b>Interactive museum</b> that fills up as the player progresses',
  'm.cf':'My mods on CurseForge ↗',
+ 't.h':'Travel','t.p':'The curiosity that makes me research every video is the same one that makes me travel.',
+ 't.cap':'Vienna, November 2025. Frames from my GoPro.',
+ 't.p1':'Whenever I travel I come back with hours of footage. I want to understand places: their history, why they are the way they are and what makes them different.',
+ 't.p2':'I write about it on my travel blog, alongside a section of curiosities about places around the world. I also leave reviews as a Google Maps Local Guide.',
+ 't.pl':'Places I’ve been','t.pll':'Italy · Paris · Istanbul · Greek islands · Vienna · Budapest · Bratislava · Brno · Albania · Thailand · Madrid · Granada · Santiago de Compostela',
+ 't.tag':'Next project · In progress','t.nt':'Travel videos',
+ 't.np':'A series of videos edited from my travel footage, with the same attention to each place’s history that I put into Meritamen.',
+ 't.l1':'Read the blog ↗','t.l2':'Google Maps reviews ↗',
  'p.h':'Experience and projects',
  'p0':'Short-form history channel. Own scripts, research and editing; over 20,000 views.',
+ 'p5':'Horror short film: directing and editing in DaVinci Resolve, script collaboration, acting and makeup.','p5.l':'Watch the film ↑',
+ 'p6.t':'Channel management','p6':'Managing content for a Minecraft channel of around 13,000 subscribers for another creator.',
  'p1':'Personal channel focused on new formats and live streams.',
  'p3.t':'Video game events','p3':'Organising and coordinating video game and online community events.','p3.n':'Organisation',
  'p4':'Collaboration on a project introducing students to digital careers, with activities and interviews about the video game industry.','p4.n':'Education',
- 'p5.t':'Short film','p5':'ASH, a horror short film: directing and editing in DaVinci Resolve, script collaboration, acting and makeup.','p5.n':'Audiovisual','p5.l':'Watch the short ↓','nav.short':'Short film',
- 'k.h':'ASH','k.p':'A horror short film I directed and edited in DaVinci Resolve. I also worked on the script, acting and makeup.',
- 'p2.t':'Travel blog','p2':'Travel stories and videos. Google Maps Local Guide.','p2.l':'Blog ↗',
  'e.h':'Education','e.c':'Higher Vocational Education and Training',
  'e1.t':'Clinical and Biomedical Laboratory','e2.t':'Pathological Anatomy and Cytodiagnosis',
  'e3.t':'Video editing','e3':'Official Blackmagic Design training and ongoing practice on my own productions in DaVinci Resolve.','e3.n':'Present',
  'e4.t':'The Beginner’s Guide to DaVinci Resolve 20','e4':'Cut and Edit pages, colour grading, Fusion visual effects and Fairlight audio.',
  'e5.t':'The Editor’s Guide to DaVinci Resolve 20','e5':'Editing interviews, drama scenes, documentary and music videos; automatic transcription, speed effects, audio mixing and delivery for digital platforms and broadcast.',
- 'c.h':'Contact','c.lt':'All my links','c.bmc':'to support me',
+ 'c.l':'08 · Contact','c.h':'Shall we make something <i>together</i>?','c.lt':'All my links','c.bmc':'to support me',
  'f':'Spain'
 };
 const nodes=[...document.querySelectorAll('[data-i18n]')];
 const ES={};nodes.forEach(n=>{ES[n.dataset.i18n]=n.innerHTML});
 const desc=document.querySelector('meta[name=description]');
-const META={es:desc.content,en:'I edit videos for YouTube and social media, run Meritamen, a history channel, and make Minecraft mods.'};
+const META={es:desc.content,en:'I edit and direct video in DaVinci Resolve. I run Meritamen, a history channel, directed the horror short ASH and make Minecraft mods.'};
 const sw=document.getElementById('langSwitch');
 let lang='es';
 function apply(next){
@@ -368,6 +477,20 @@ if((saved||((navigator.language||'es').toLowerCase().startsWith('es')?'es':'en')
 const nav=document.getElementById('nav'),mb=document.getElementById('menuBtn');
 mb.addEventListener('click',()=>{const o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
 nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');mb.setAttribute('aria-expanded',false)}});
+
+const bar=document.getElementById('top');
+const onScroll=()=>bar.classList.toggle('solid',window.scrollY>window.innerHeight*0.6||nav.classList.contains('open'));
+addEventListener('scroll',onScroll,{passive:true});mb.addEventListener('click',onScroll);onScroll();
+
+const reel=document.getElementById('reel'),tc=document.getElementById('tc');
+const pad=n=>String(n).padStart(2,'0');
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){reel.removeAttribute('autoplay');reel.pause()}
+reel.addEventListener('timeupdate',()=>{const t=reel.currentTime;tc.textContent=`00:00:${pad(Math.floor(t))}:${pad(Math.floor((t%1)*25))}`});
+
+if('IntersectionObserver' in window){
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
 
 document.getElementById('year').textContent=new Date().getFullYear();
 })();
