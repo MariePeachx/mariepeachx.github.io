@@ -81,8 +81,15 @@ section{padding:110px 0}
 .sec-head p{margin:0;color:var(--soft);max-width:520px}
 
 /* sobre mí */
-.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:center}
+#sobre-mi{position:relative;overflow:hidden;background:radial-gradient(ellipse 50% 60% at 18% 45%,#f6d9e2 0%,transparent 70%),var(--paper)}
+.bigword{position:absolute;right:-2vw;top:40px;font:italic 300 clamp(6rem,19vw,17rem)/1 var(--serif);font-variation-settings:"SOFT" 100;color:#d76f9314;pointer-events:none;user-select:none;white-space:nowrap;z-index:0}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,7vw,90px);align-items:center;position:relative;z-index:1}
 .frame{position:relative;margin:0 16px 0 16px}
+.badge{position:absolute;top:22px;left:-26px;z-index:3;display:flex;align-items:center;gap:8px;background:#fffdf9;color:var(--ink);font:400 .72rem var(--mono);letter-spacing:.06em;padding:9px 14px;border-radius:30px;box-shadow:0 12px 28px -14px #5a3a4a66;transform:rotate(-4deg)}
+.badge::before{content:"";width:8px;height:8px;border-radius:50%;background:#3fa36b;box-shadow:0 0 0 4px #3fa36b2e}
+.about .hi{font:italic 300 1.15rem var(--serif);color:var(--rose);margin:14px 0 4px}
+.about .chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.about .chips span{font:400 .74rem var(--mono);border:1px solid #d76f9355;color:#8a4a62;border-radius:30px;padding:6px 12px;background:#fffdf9aa}
 .frame img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 40%;border-radius:3px;position:relative;z-index:1}
 .frame::before{content:"";position:absolute;inset:-16px 16px 16px -16px;border:1px solid var(--rose);border-radius:3px}
 .frame figcaption{position:absolute;bottom:-14px;right:-14px;z-index:2;background:var(--ink);color:var(--paper);font:400 .7rem var(--mono);letter-spacing:.12em;padding:8px 12px;text-transform:uppercase}
@@ -187,7 +194,7 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
 .js .reveal.in{opacity:1;transform:none}
 
 @media(max-width:960px){
- .about{grid-template-columns:1fr;gap:56px}.frame{max-width:340px}
+ .about{grid-template-columns:.75fr 1.25fr}
  .services{grid-template-columns:1fr 1fr}
  .ash-grid,.travel,.contact-grid{grid-template-columns:1fr;gap:36px}
  .mod,.mod.flip{grid-template-columns:1fr;gap:28px}.mod.flip .shot{order:0}
@@ -205,6 +212,8 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
  .tc{display:none}
  .sec-head{grid-template-columns:1fr}.sec-head .num{grid-row:auto;padding:0}
  .gallery{grid-template-rows:150px 150px}
+ .about{grid-template-columns:1fr;gap:44px}.frame{max-width:250px;margin:10px auto 0}
+ .badge{left:-18px}
 }
 @media(max-width:520px){.services{grid-template-columns:1fr}.card h3{margin-top:26px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.js .reveal{opacity:1;transform:none}}
@@ -246,13 +255,14 @@ footer .wrap{padding:26px 0 34px;display:flex;justify-content:space-between;gap:
  </div>
 </div>
 
-<section id="sobre-mi"><div class="wrap about">
- <figure class="frame reveal"><img src="assets/marie-portrait.jpg" alt="Marie Peachx" width="400" height="500"><figcaption>Marie Peachx</figcaption></figure>
+<section id="sobre-mi"><span class="bigword" aria-hidden="true" data-i18n="a.bw">montaje</span><div class="wrap about">
+ <figure class="frame reveal"><span class="badge" data-i18n="a.badge">Disponible para proyectos</span><img src="assets/marie-portrait.jpg" alt="Marie Peachx" width="400" height="500"><figcaption>Marie Peachx</figcaption></figure>
  <div class="reveal">
   <div class="label" data-i18n="a.l">01 · Sobre mí</div>
-  <h2 data-i18n="a.h">Edición, divulgación y <i>cine de terror</i>.</h2>
+  <h2 data-i18n="a.h">Hola, soy <i>Marie</i>.<br>Edito vídeos.</h2>
   <p data-i18n="a.p1">Edito vídeos para YouTube y redes sociales con DaVinci Resolve: montaje, subtítulos y diseño de sonido. Dirijo Meritamen, un canal de divulgación histórica, y desarrollo modpacks narrativos para Minecraft.</p>
   <p data-i18n="a.p2">Vengo del ámbito sanitario, con dos ciclos de grado superior. De ahí viene mi forma de trabajar: documentación rigurosa, método y atención al detalle.</p>
+  <div class="chips"><span data-i18n="a.c1">YouTube</span><span data-i18n="a.c2">Reels y Shorts</span><span data-i18n="a.c3">Cortometraje</span><span data-i18n="a.c4">Divulgación</span><span data-i18n="a.c5">Eventos</span></div>
   <div class="stats">
    <div><b>+20.000</b><span data-i18n="s1">visualizaciones en Meritamen</span></div>
    <div><b>13.000</b><span data-i18n="s2">suscriptores en el canal que gestiono</span></div>
@@ -414,7 +424,7 @@ const EN={
  'h.p':'I edit videos in DaVinci Resolve, from raw footage to final export. I make history content and I directed ASH, a horror short film.',
  'h.c1':'▶ Watch ASH, my short film','h.c2':'Get in touch',
  'h.s1':'Editing','h.s2':'Colour','h.s3':'Script','h.s4':'Directing',
- 'a.l':'01 · About me','a.h':'Editing, educational content and <i>horror film</i>.',
+ 'a.l':'01 · About me','a.h':'Hi, I’m <i>Marie</i>.<br>I edit videos.','a.badge':'Available for projects','a.bw':'editing','a.c1':'YouTube','a.c2':'Reels and Shorts','a.c3':'Short film','a.c4':'Educational content','a.c5':'Events',
  'a.p1':'I edit videos for YouTube and social media in DaVinci Resolve: editing, captions and sound design. I run Meritamen, a history channel, and develop story-driven Minecraft modpacks.',
  'a.p2':'I come from healthcare, with two higher vocational qualifications. That shapes how I work: thorough research, method and attention to detail.',
  's1':'views on Meritamen','s2':'subscribers on the channel I manage','s3':'official Blackmagic Design courses','s4':'Minecraft adventure modpacks',
